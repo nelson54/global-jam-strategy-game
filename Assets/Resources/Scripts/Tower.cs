@@ -34,6 +34,7 @@ public class Tower : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        print(MouseIsDragging);
         DraggingTower();
         StateMachine();
         //If an enemy gets killed (Becomes Null) when it's being shot remove it from the list and find a new target
@@ -74,18 +75,29 @@ public class Tower : MonoBehaviour {
 					MouseIsDragging = false;
                     SwitchStates = State.FindNextTarget;    // Enable the tower once you stop dragging it
                     PlayerManager.instance.towerBeingDragged = null;
+					return;
 				}
-			} else if(towerPen != null) {
-				// snap to the center of that object
-				transform.position = new Vector3(towerPen.transform.position.x, towerPen.transform.position.y, transform.position.z);
 
-				// Stop dragging
-				MouseIsDragging = false;
-				SwitchStates = State.FindNextTarget;	// Enable the tower once you stop dragging it
-				PlayerManager.instance.towerBeingDragged = null;
+				PlaceableTowerSpot spot = hit.transform.GetComponent<PlaceableTowerSpot>();
+				if(spot != null) {
+					// Send the object to the other player
+					//Debug.Log("sending to player " + spot.Player);
+
+					// Stop dragging
+					MouseIsDragging = false;
+					SwitchStates = State.FindNextTarget;    // Enable the tower once you stop dragging it
+					PlayerManager.instance.towerBeingDragged = null;
+					return;
+				}
 			}
 
+			// snap to the center of that object
+			transform.position = new Vector3(towerPen.transform.position.x, towerPen.transform.position.y, transform.position.z);
 
+			// Stop dragging
+			MouseIsDragging = false;
+			SwitchStates = State.FindNextTarget;	// Enable the tower once you stop dragging it
+			PlayerManager.instance.towerBeingDragged = null;
 		}
 
     }
