@@ -5,7 +5,7 @@ using UnityEngine;
 public class Tower : MonoBehaviour {
 
 	// The layer number for the tower
-	static int TOWER_IGNORE_MASK;
+	public static int TOWER_IGNORE_MASK { get; private set; }
 
     //The bool that detects if this specific tower is being dragged
     private bool MouseIsDragging;

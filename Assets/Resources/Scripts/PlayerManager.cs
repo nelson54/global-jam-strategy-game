@@ -29,7 +29,7 @@ public class PlayerManager : Singleton<PlayerManager> {
 	public bool isDead { get { return health <= 0; } }
 
 	// If the player is dragging a tower, it's stored here. Otherwise, this is null
-	public Tower towerBeingDragged = null;
+	[System.NonSerialized] public Tower towerBeingDragged = null;
 
 	public void StartGame() {
 		currentHealth = initialHealth;
