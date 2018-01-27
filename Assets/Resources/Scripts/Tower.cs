@@ -9,6 +9,9 @@ public class Tower : MonoBehaviour {
 
     //The bool that detects if this specific tower is being dragged
     private bool MouseIsDragging;
+    [SerializeField] float FireRate;
+    [SerializeField] GameObject Bullet;
+
 
     // Use this for initialization
     void Start()
@@ -48,8 +51,18 @@ public class Tower : MonoBehaviour {
         if (MouseIsDragging)
         {
             Vector3 TrueMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 MousePosition = new Vector3(TrueMousePosition.x, TrueMousePosition.y, -2f);
+            Vector3 MousePosition = new Vector3(TrueMousePosition.x, TrueMousePosition.y, transform.position.z);
             gameObject.transform.position = MousePosition;
         }
+    }
+
+    private void ShootEnemy(GameObject Enemy)
+    {
+
+    }
+
+    private void StopShootingEnemy()
+    {
+
     }
 }
