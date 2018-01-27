@@ -32,7 +32,6 @@ public class Tower : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        print(MouseIsDragging);
         DraggingTower();
         StateMachine();
         //If an enemy gets killed (Becomes Null) when it's being shot remove it from the list and find a new target
