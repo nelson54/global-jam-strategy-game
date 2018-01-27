@@ -95,6 +95,7 @@ public class Tower : MonoBehaviour {
 				}
 			}
 
+			transform.position = new Vector3(towerPen.transform.position.x, towerPen.transform.position.y, transform.position.z);
 
 			// Stop dragging
 			MouseIsDragging = false;
