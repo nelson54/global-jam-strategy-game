@@ -36,17 +36,20 @@ public class Tower : MonoBehaviour {
         MouseIsDragging = !MouseIsDragging;
 
 		if(!MouseIsDragging) {
-			// raycast should ignore the tower
-			int mask = 1 << TOWER_LAYER_NUMBER;
+			// raycast should ignore the tower/tower detector
+			int mask = (1 << LayerMask.NameToLayer("Tower")) | (1 << LayerMask.NameToLayer("Tower Detector"));
 			mask = ~mask;
 			RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, mask);
 			if (hit) {
-				Transform objectHit = hit.transform;
-				// Send the object to the other player
+				TowerSendPlatform platform = hit.transform.GetComponent<TowerSendPlatform>();
+				if(platform != null) {
+					// Send the object to the other player
+					Debug.Log("sending to player " + platform.Player);
 
+				}
 			}
-
 		}
+
     }
 
     private void DraggingTower()
@@ -56,7 +59,12 @@ public class Tower : MonoBehaviour {
         {
             Vector3 TrueMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 MousePosition = new Vector3(TrueMousePosition.x, TrueMousePosition.y, transform.position.z);
-            gameObject.transform.position = MousePosition;
+			// bound the tracking only to valid positions
+			if(MousePosition.x > -8.8f && MousePosition.x < 8.8f && MousePosition.y < 5f && MousePosition.y > -3.8f) {
+				gameObject.transform.position = MousePosition;
+			}
+			
+
         }
     }
 
