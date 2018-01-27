@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 61813862083379344}
   m_Layer: 10
   m_Name: basic enemy
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,6 +99,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 972ab9beba6914f4eb06ed74236c15e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultSpeed: 1
+  damage: 1
+  speed: 1
+  Health: 0
+  slowed: 0
+  slowSpeed: 0.3
+  slowTime: 0
+  slowLength: 0.6
+  cashValue: 50
   target: {x: 10, y: 10}
   speed: 1
   inRangeDist: 0.5
