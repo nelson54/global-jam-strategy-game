@@ -7,7 +7,7 @@ public class BaseHealthBar : MonoBehaviour {
 
 	private Image healthBar;
 
-	void Start () {
+	void Awake () {
 		healthBar = GetComponent<Image> ();
 	}
 

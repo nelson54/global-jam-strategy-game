@@ -7,7 +7,7 @@ public class MoneyDisplay : MonoBehaviour {
 
 	private Text displayText;
 
-	void Start () {
+	void Awake () {
 		displayText = GetComponent<Text> ();
 	}
 	

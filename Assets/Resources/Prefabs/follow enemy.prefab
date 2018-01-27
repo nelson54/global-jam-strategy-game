@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212315482974155060}
   - component: {fileID: 114528135484369388}
   - component: {fileID: 50305049359925222}
+  - component: {fileID: 61919592746303650}
   m_Layer: 10
   m_Name: follow enemy
   m_TagString: Untagged
@@ -62,6 +63,31 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &61919592746303650
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1254217331097502}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.61, y: 0.42}
+    newSize: {x: 0.61, y: 0.42}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.61, y: 0.42}
+  m_EdgeRadius: 0
 --- !u!114 &114528135484369388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -76,11 +102,12 @@ MonoBehaviour:
   defaultSpeed: 1
   damage: 5
   speed: 1
-  Health: 0
+  Health: 10
   slowed: 0
   slowSpeed: 0.3
   slowTime: 0
   slowLength: 0.6
+  cashValue: 50
   nextNode: {fileID: 0}
   epsilon: 0.1
 --- !u!212 &212315482974155060
