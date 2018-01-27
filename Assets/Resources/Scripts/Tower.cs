@@ -17,6 +17,7 @@ public class Tower : MonoBehaviour {
     public State SwitchStates;
     //Stores the current enemy being shot at
     public GameObject EnemyBeingShot;
+    public List<GameObject> DetectedEnemies; 
 
 
     // Use this for initialization
@@ -24,6 +25,7 @@ public class Tower : MonoBehaviour {
     {
         //Initialize the tower as not being dragged
         MouseIsDragging = false;
+        DetectedEnemies = new List<GameObject>();
     }
 
     // Update is called once per frame
@@ -31,6 +33,12 @@ public class Tower : MonoBehaviour {
     {
         DraggingTower();
         StateMachine();
+        //If an enemy gets killed (Becomes Null) when it's being shot remove it from the list and find a new target
+        if(EnemyBeingShot == null)
+        {
+            SwitchStates = State.FindNextTarget;
+            DetectedEnemies.Remove(EnemyBeingShot);
+        }
     }
 
     //When the mouse is clicked on the object toggle the dragging bool
@@ -97,6 +105,18 @@ public class Tower : MonoBehaviour {
 
     private void FindNextTarget()
     {
-
+        if(DetectedEnemies.Count != 0)
+        {
+            print(DetectedEnemies[0]);
+            for (int i = 0; i < DetectedEnemies.Count; i++)
+            {
+                //If the enemy found in the list is not null start shooting at that
+                if (DetectedEnemies[i] != null)
+                {
+                    EnemyBeingShot = DetectedEnemies[i];
+                    SwitchStates = State.StartShooting;
+                }
+            }
+        }
     }
 }
