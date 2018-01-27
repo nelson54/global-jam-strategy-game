@@ -36,12 +36,12 @@ public class EnemyDetector : MonoBehaviour {
     {
         if(collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
+            //When an enemy leaves the collider remove them from the list
+            Tower.DetectedEnemies.Remove(collider.gameObject);
             //If the enemy leaving the trigger is the enemy being shot by the tower change who the tower is shooting
             if (collider.gameObject == Tower.EnemyBeingShot)
             {
                 Tower.SwitchStates = Tower.State.FindNextTarget;
-                //When an enemy leaves the collider remove them from the list
-                Tower.DetectedEnemies.Remove(collider.gameObject);
             }
         }
     }

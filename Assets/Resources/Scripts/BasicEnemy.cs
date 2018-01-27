@@ -8,10 +8,12 @@ public class BasicEnemy : Enemy {
 	public float speed = 1f;
 	public float inRangeDist = 0.5f;
 
+
 	private Rigidbody2D body;
 
 	void Start () {
 		body = GetComponent<Rigidbody2D> ();
+        Health = 10f;
 	}
 
 	void Update () {
@@ -24,4 +26,6 @@ public class BasicEnemy : Enemy {
 			body.velocity = Vector2.zero;
 		}
 	}
+
+
 }
