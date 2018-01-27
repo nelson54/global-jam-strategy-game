@@ -12,8 +12,11 @@ public class Tower : MonoBehaviour {
     private float Timer = 0;
     [SerializeField] float FireRate;
     [SerializeField] GameObject Bullet;
+    [SerializeField] float BulletSpeed;
     public enum State { FindNextTarget, StartShooting }
     public State SwitchStates;
+    //Stores the current enemy being shot at
+    public GameObject EnemyBeingShot;
 
 
     // Use this for initialization
@@ -97,7 +100,10 @@ public class Tower : MonoBehaviour {
             //Instantiate an object and set their velocity to the calculated value of where the enemy they're shooting will be
             GameObject InstantiatedBullet;
             InstantiatedBullet = Instantiate(Bullet, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0f), transform.rotation);
-            InstantiatedBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(1f, 0f);
+            //Draw a vector from the tower to the enemy
+            Vector2 VectorToEnemy = (EnemyBeingShot.transform.position - this.transform.position);
+            //Normalize the vector from the tower to the enemy and apply the bullet speed to it
+            InstantiatedBullet.GetComponent<Rigidbody2D>().velocity = VectorToEnemy.normalized * BulletSpeed;
             Timer = 0;
         }
 
@@ -107,10 +113,5 @@ public class Tower : MonoBehaviour {
     private void FindNextTarget()
     {
 
-    }
-
-    public void StopShooting()
-    {
-        SwitchStates = State.FindNextTarget;
     }
 }
