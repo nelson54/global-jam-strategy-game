@@ -55,12 +55,6 @@ public class Tower : MonoBehaviour {
 
 		// If the player is already dragging, check to see if we're dragging this one.
 		else if(PlayerManager.instance.towerBeingDragged == this) {
-			// Stop dragging
-			MouseIsDragging = false;
-            //Enable the tower once you stop dragging it
-            SwitchStates = State.FindNextTarget;
-			PlayerManager.instance.towerBeingDragged = null;
-
 			// Raycast to see where we're trying to put the tower
 			RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, TOWER_IGNORE_MASK);
 			if (hit) {
@@ -70,6 +64,10 @@ public class Tower : MonoBehaviour {
 					// Send the object to the other player
 					Debug.Log("sending to player " + platform.Player);
 
+					// Stop dragging
+					MouseIsDragging = false;
+					SwitchStates = State.FindNextTarget;	// Enable the tower once you stop dragging it
+					PlayerManager.instance.towerBeingDragged = null;
 				}
 				// Placing on a spot where you can put a tower
 				else {
@@ -77,6 +75,11 @@ public class Tower : MonoBehaviour {
 					if(spot != null) {
 						// snap to the center of that object
 						transform.position = new Vector3(spot.transform.position.x, spot.transform.position.y, transform.position.z);
+
+						// Stop dragging
+						MouseIsDragging = false;
+						SwitchStates = State.FindNextTarget;	// Enable the tower once you stop dragging it
+						PlayerManager.instance.towerBeingDragged = null;
 					}
 				}
 
