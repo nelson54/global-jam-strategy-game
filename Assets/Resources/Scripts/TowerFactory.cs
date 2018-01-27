@@ -8,13 +8,16 @@ public class TowerFactory : MonoBehaviour {
 
 	public bool isBuilding = false;
 
+	public int buildingCost = 0;
 	public float totalWork = 1f;
 	public float currentWork = 0f;
 	public float workRate = .1f;
 
+	private PlayerManager playerManager;
+
 	// Use this for initialization
 	void Start () {
-		//progressBar = GetComponent<BuildingProgressBar> ();
+		playerManager = PlayerManager.instance;
 	}
 	
 	// Update is called once per frame
@@ -22,17 +25,21 @@ public class TowerFactory : MonoBehaviour {
 		if(isBuilding) {
 			WorkTick ();
 		} else if (Input.GetKeyDown (KeyCode.Space)) {
-			Build (1f);
+			Build (80, 1f);
 		}
 
 
 	}
 
-	public void Build(float totalWork) {
-		isBuilding = true;
-		currentWork = 0f;
-		this.totalWork = totalWork;
-		progressBar.Show ();
+	public void Build(int cost, float totalWork) {
+		if (playerManager.money >= cost) {
+			buildingCost = cost;
+			playerManager.money -= cost;
+			isBuilding = true;
+			currentWork = 0f;
+			this.totalWork = totalWork;
+			progressBar.Show ();
+		}
 	}
 
 	public void FinishBuilding() {
@@ -44,6 +51,8 @@ public class TowerFactory : MonoBehaviour {
 	}
 
 	public void CancelBuilding() {
+		playerManager.money += buildingCost;
+		buildingCost = 0;
 		isBuilding = false;
 		progressBar.Reset ();
 	}
