@@ -23,7 +23,7 @@ public class Tower : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-		TOWER_IGNORE_MASK = ~(1 << LayerMask.NameToLayer("Tower")) | (1 << LayerMask.NameToLayer("Tower Detector"));
+		TOWER_IGNORE_MASK = ~LayerMask.GetMask("Tower", "Tower Detector");
         //Initialize the tower as not being dragged
         MouseIsDragging = false;
         DetectedEnemies = new List<GameObject>();

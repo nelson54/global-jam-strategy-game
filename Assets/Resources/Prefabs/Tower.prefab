@@ -140,6 +140,7 @@ MonoBehaviour:
   BulletSpeed: 4
   SwitchStates: 0
   EnemyBeingShot: {fileID: 0}
+  DetectedEnemies: []
 --- !u!212 &212766709588182406
 SpriteRenderer:
   m_ObjectHideFlags: 1
