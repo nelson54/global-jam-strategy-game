@@ -64,12 +64,24 @@ public class Tower : MonoBehaviour {
 			// Raycast to see where we're trying to put the tower
 			RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, TOWER_IGNORE_MASK);
 			if (hit) {
+				// Placing on one of the sending platformers
 				TowerSendPlatform platform = hit.transform.GetComponent<TowerSendPlatform>();
 				if(platform != null) {
 					// Send the object to the other player
 					Debug.Log("sending to player " + platform.Player);
 
 				}
+				// Placing on a spot where you can put a tower
+				else {
+					PlaceableTowerSpot spot = hit.transform.GetComponent<PlaceableTowerSpot>();
+					if(spot != null) {
+						// snap to the center of that object
+						transform.position = new Vector3(spot.transform.position.x, spot.transform.position.y, transform.position.z);
+					}
+				}
+
+
+
 			}
 
 		}
