@@ -1523,6 +1523,52 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ec4c6f583d3b4ef4c9a1b7f318bda6e7, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &920944394
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4014649573416862, guid: ec4c6f583d3b4ef4c9a1b7f318bda6e7, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 4014649573416862, guid: ec4c6f583d3b4ef4c9a1b7f318bda6e7, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 4.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4014649573416862, guid: ec4c6f583d3b4ef4c9a1b7f318bda6e7, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.025602741
+      objectReference: {fileID: 0}
+    - target: {fileID: 4014649573416862, guid: ec4c6f583d3b4ef4c9a1b7f318bda6e7, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4014649573416862, guid: ec4c6f583d3b4ef4c9a1b7f318bda6e7, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4014649573416862, guid: ec4c6f583d3b4ef4c9a1b7f318bda6e7, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4014649573416862, guid: ec4c6f583d3b4ef4c9a1b7f318bda6e7, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4014649573416862, guid: ec4c6f583d3b4ef4c9a1b7f318bda6e7, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146670521938288, guid: ec4c6f583d3b4ef4c9a1b7f318bda6e7, type: 2}
+      propertyPath: m_Name
+      value: Tower Placement Position (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ec4c6f583d3b4ef4c9a1b7f318bda6e7, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &944487632
 GameObject:
   m_ObjectHideFlags: 0
@@ -2704,52 +2750,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ec4c6f583d3b4ef4c9a1b7f318bda6e7, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &1658261043
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4014649573416862, guid: ec4c6f583d3b4ef4c9a1b7f318bda6e7, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.57
-      objectReference: {fileID: 0}
-    - target: {fileID: 4014649573416862, guid: ec4c6f583d3b4ef4c9a1b7f318bda6e7, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 4.18
-      objectReference: {fileID: 0}
-    - target: {fileID: 4014649573416862, guid: ec4c6f583d3b4ef4c9a1b7f318bda6e7, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.025602741
-      objectReference: {fileID: 0}
-    - target: {fileID: 4014649573416862, guid: ec4c6f583d3b4ef4c9a1b7f318bda6e7, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4014649573416862, guid: ec4c6f583d3b4ef4c9a1b7f318bda6e7, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4014649573416862, guid: ec4c6f583d3b4ef4c9a1b7f318bda6e7, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4014649573416862, guid: ec4c6f583d3b4ef4c9a1b7f318bda6e7, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4014649573416862, guid: ec4c6f583d3b4ef4c9a1b7f318bda6e7, type: 2}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1146670521938288, guid: ec4c6f583d3b4ef4c9a1b7f318bda6e7, type: 2}
-      propertyPath: m_Name
-      value: Tower Placement Position (2)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: ec4c6f583d3b4ef4c9a1b7f318bda6e7, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &1698251733
 Prefab:
   m_ObjectHideFlags: 0
@@ -3053,17 +3053,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SnapToCenter: 0
-  SpriteToChange: {fileID: 0}
-  Unhighlighted:
-    r: 0.2784314
-    g: 0.2784314
-    b: 0.2784314
-    a: 0
-  Highlighted:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
+  Unhighlighted: {r: 0.2784314, g: 0.2784314, b: 0.2784314, a: 0}
+  Highlighted: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &1789169763
 Prefab:
   m_ObjectHideFlags: 0
