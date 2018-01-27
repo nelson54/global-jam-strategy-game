@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212766709588182406}
   - component: {fileID: 61034937961306764}
   - component: {fileID: 114311121179996332}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -137,7 +137,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FireRate: 0.3
   Bullet: {fileID: 1193277543246602, guid: 4d22dd99e7e95884d81a3a407e52edfa, type: 2}
+  BulletSpeed: 4
   SwitchStates: 0
+  EnemyBeingShot: {fileID: 0}
 --- !u!212 &212766709588182406
 SpriteRenderer:
   m_ObjectHideFlags: 1
