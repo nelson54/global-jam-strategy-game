@@ -6,8 +6,11 @@ public class Tower : MonoBehaviour {
 
     //The bool that detects if this specific tower is being dragged
     private bool MouseIsDragging;
+    private float Timer = 0;
     [SerializeField] float FireRate;
     [SerializeField] GameObject Bullet;
+    public enum State { FindNextTarget, StartShooting }
+    public State SwitchStates;
 
 
     // Use this for initialization
@@ -21,6 +24,7 @@ public class Tower : MonoBehaviour {
     void Update()
     {
         DraggingTower();
+        StateMachine();
     }
 
     //When the mouse is clicked on the object toggle the dragging bool
@@ -40,13 +44,42 @@ public class Tower : MonoBehaviour {
         }
     }
 
-    private void ShootEnemy(GameObject Enemy)
+    //Contains the switch statement that tells the tower what to do
+    private void StateMachine()
+    {
+        switch(SwitchStates)
+        {
+            case State.StartShooting:
+                StartShooting();
+                break;
+            case State.FindNextTarget:
+                FindNextTarget();
+                break;
+        }
+    }
+
+    private void StartShooting()
+    {
+        Timer += Time.deltaTime;
+        if(Timer > FireRate)
+        {
+            //Instantiate an object and set their velocity to the calculated value of where the enemy they're shooting will be
+            GameObject InstantiatedBullet;
+            InstantiatedBullet = Instantiate(Bullet, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0f), transform.rotation);
+            InstantiatedBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(1f, 0f);
+            Timer = 0;
+        }
+
+
+    }
+
+    private void FindNextTarget()
     {
 
     }
 
-    private void StopShootingEnemy()
+    public void StopShooting()
     {
-
+        SwitchStates = State.FindNextTarget;
     }
 }

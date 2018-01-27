@@ -38,6 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4677458183443818}
   - component: {fileID: 58394295411970702}
+  - component: {fileID: 114013562258355792}
   m_Layer: 8
   m_Name: EnemyDetector
   m_TagString: Untagged
@@ -81,7 +82,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -112,6 +113,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
+--- !u!114 &114013562258355792
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1961238479878264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 052dcc9834c7feb45a1496af197e82e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114311121179996332
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -123,8 +135,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec6c6479a2d0b0348983d00ccfd71205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FireRate: 5
+  FireRate: 0.3
   Bullet: {fileID: 1193277543246602, guid: 4d22dd99e7e95884d81a3a407e52edfa, type: 2}
+  SwitchStates: 0
 --- !u!212 &212766709588182406
 SpriteRenderer:
   m_ObjectHideFlags: 1
