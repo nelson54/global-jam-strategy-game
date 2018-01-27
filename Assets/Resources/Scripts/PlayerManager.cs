@@ -1,3 +1,4 @@
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,9 +7,13 @@ public class PlayerManager : Singleton<PlayerManager> {
 
 	public float initialHealth = 100;
 	public float currentHealth;
+	public int initialMoney = 500;
+	public int currentMoney;
+
 	//public PlayerColor color;  //TODO define this
 
 	public HealthChangedEvent healthChanged;
+	public MoneyChangedEvent moneyChanged;
 
 	public float health {
 		get { return currentHealth; }
@@ -29,10 +34,27 @@ public class PlayerManager : Singleton<PlayerManager> {
 	public bool isDead { get { return health <= 0; } }
 
 	// If the player is dragging a tower, it's stored here. Otherwise, this is null
-	[System.NonSerialized] public Tower towerBeingDragged = null;
+	[NonSerialized] public Tower towerBeingDragged = null;
+
+	public int money {
+		get { return currentMoney; }
+		set {
+			var oldVal = currentMoney;
+			currentMoney = Math.Max (value, 0);
+
+			if (currentMoney != oldVal) {
+				OnMoneyChanged ();
+			}
+		}
+	}
 
 	public void StartGame() {
 		currentHealth = initialHealth;
+		currentMoney = initialMoney;
+
+		OnMoneyChanged ();
+		OnHealthChanged ();
+
 		//TODO other stuff!
 	}
 
@@ -58,9 +80,15 @@ public class PlayerManager : Singleton<PlayerManager> {
 	void OnHealthChanged() {
 		healthChanged.Invoke (currentHealth, initialHealth); //TODO add in the player identifier (modify event)
 		Debug.Log( string.Format("Player's base Has {0} hp", currentHealth) ); 
+
 	}
 
 	void OnPlayerHasLost() {
 		//TODO player loss management
+	}
+
+	void OnMoneyChanged() {
+		moneyChanged.Invoke (currentMoney);
+		Debug.Log (string.Format ("Player's money is ${0}", currentMoney));
 	}
 }

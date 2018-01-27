@@ -7,11 +7,12 @@ public abstract class Enemy : MonoBehaviour {
 
 	public float damage = 1f;
 	public float speed;
+	public float cashValue = 50;
 
-	public bool slowed = false;
-	public float slowSpeed = .3f;
-	public float slowTime = 0f;
-	public float slowLength = .6f;
+	protected bool slowed = false;
+	protected float slowSpeed = .3f;
+	protected float slowTime = 0f;
+	protected float slowLength = .6f;
 
 	protected virtual void Start() {
 		speed = defaultSpeed;
