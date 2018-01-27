@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicEnemy : MonoBehaviour {
+public class BasicEnemy : Enemy {
 
 	public Vector2 target = new Vector3(10, 10);
 	public float speed = 1f;

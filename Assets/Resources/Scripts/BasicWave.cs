@@ -13,7 +13,7 @@ public class BasicWave : Wave
 			var instance = GameObject.Instantiate (enemyPrefab);
 			instance.transform.position = start.transform.position;
 
-			var follow = instance.GetComponent<FollowEnemyPath> ();
+			var follow = instance.GetComponent<FollowPathEnemy> ();
 			follow.nextNode = start;
 				
 			if (i < size - 1) {

@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 4973682593228950}
   - component: {fileID: 114706765801594016}
   m_Layer: 0
-  m_Name: node4
+  m_Name: end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,8 +162,8 @@ Transform:
   m_LocalPosition: {x: -3.5229456, y: 4.3444614, z: -0.06146538}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4575108553259968}
   - {fileID: 4724670424148218}
+  - {fileID: 4575108553259968}
   - {fileID: 4409450965886168}
   - {fileID: 4654170007413326}
   - {fileID: 4090287310351402}
@@ -196,7 +196,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4286999289615044}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4654170007413326
 Transform:
@@ -218,11 +218,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1849637677602436}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.22, y: -0.3, z: 0}
+  m_LocalPosition: {x: 2.3, y: 1.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4286999289615044}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4870127890349292
 Transform:
@@ -244,7 +244,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1374049249214082}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.22, y: -8.21, z: 0}
+  m_LocalPosition: {x: 10.34, y: -7.86, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4286999289615044}
@@ -332,6 +332,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14f32dad1bf5b4604ac838de9260d9a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reachedEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: OnEnemyReachedEnd
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: ReachedEndEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114618276229350162
 MonoBehaviour:
   m_ObjectHideFlags: 1
