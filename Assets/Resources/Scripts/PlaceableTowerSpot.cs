@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlaceableTowerSpot : MonoBehaviour {
 
-	[SerializeField] bool SnapToCenter;
+	public bool SnapToCenter { get; private set; }
 
 	SpriteRenderer SpriteToChange;
 

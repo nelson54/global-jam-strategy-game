@@ -83,6 +83,10 @@ public class Tower : MonoBehaviour {
 					// Send the object to the other player
 					//Debug.Log("sending to player " + spot.Player);
 
+					// snap to the center of that object
+					if(spot.SnapToCenter)
+						transform.position = new Vector3(spot.transform.position.x, spot.transform.position.y, transform.position.z);
+
 					// Stop dragging
 					MouseIsDragging = false;
 					SwitchStates = State.FindNextTarget;    // Enable the tower once you stop dragging it
@@ -91,8 +95,6 @@ public class Tower : MonoBehaviour {
 				}
 			}
 
-			// snap to the center of that object
-			transform.position = new Vector3(towerPen.transform.position.x, towerPen.transform.position.y, transform.position.z);
 
 			// Stop dragging
 			MouseIsDragging = false;
