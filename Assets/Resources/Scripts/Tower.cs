@@ -19,6 +19,8 @@ public class Tower : MonoBehaviour {
     public GameObject EnemyBeingShot;
     public List<GameObject> DetectedEnemies; 
 
+	private TowerPen towerPen;
+
 
     // Use this for initialization
     void Start()
@@ -42,6 +44,10 @@ public class Tower : MonoBehaviour {
             DetectedEnemies.Remove(EnemyBeingShot);
         }
     }
+
+	public void setTowerPen(TowerPen towerPen) {
+		this.towerPen = towerPen;
+	}
 
     //When the mouse is clicked on the object toggle the dragging bool
     private void OnMouseDown()
@@ -70,23 +76,16 @@ public class Tower : MonoBehaviour {
                     SwitchStates = State.FindNextTarget;    // Enable the tower once you stop dragging it
                     PlayerManager.instance.towerBeingDragged = null;
 				}
-				// Placing on a spot where you can put a tower
-				else {
-					PlaceableTowerSpot spot = hit.transform.GetComponent<PlaceableTowerSpot>();
-					if(spot != null) {
-						// snap to the center of that object
-						transform.position = new Vector3(spot.transform.position.x, spot.transform.position.y, transform.position.z);
+			} else if(towerPen != null) {
+				// snap to the center of that object
+				transform.position = new Vector3(towerPen.transform.position.x, towerPen.transform.position.y, transform.position.z);
 
-						// Stop dragging
-						MouseIsDragging = false;
-						SwitchStates = State.FindNextTarget;	// Enable the tower once you stop dragging it
-						PlayerManager.instance.towerBeingDragged = null;
-					}
-				}
-
-
-
+				// Stop dragging
+				MouseIsDragging = false;
+				SwitchStates = State.FindNextTarget;	// Enable the tower once you stop dragging it
+				PlayerManager.instance.towerBeingDragged = null;
 			}
+
 
 		}
 

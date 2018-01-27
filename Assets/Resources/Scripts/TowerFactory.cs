@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class TowerFactory : MonoBehaviour {
 	public GameObject towerPrefab;
+
 	public BuildingProgressBar progressBar;
+	public TowerPen towerPen;
 
 	public bool isBuilding = false;
 
@@ -27,8 +29,7 @@ public class TowerFactory : MonoBehaviour {
 		} else if (Input.GetKeyDown (KeyCode.Space)) {
 			Build (80, 1f);
 		}
-
-
+			
 	}
 
 	public void Build(int cost, float totalWork) {
@@ -48,6 +49,9 @@ public class TowerFactory : MonoBehaviour {
 
 		var instance = GameObject.Instantiate (towerPrefab);
 		instance.transform.position = this.transform.position + new Vector3(1f, -.5f, 0f);
+
+		var tower = instance.GetComponent<Tower> ();
+		tower.setTowerPen (towerPen);
 	}
 
 	public void CancelBuilding() {
