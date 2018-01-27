@@ -1,8 +1,11 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Tower : MonoBehaviour {
+
+	// The layer number for the tower
+	const int TOWER_LAYER_NUMBER = 11;
 
     //The bool that detects if this specific tower is being dragged
     private bool MouseIsDragging;
@@ -31,6 +34,19 @@ public class Tower : MonoBehaviour {
     private void OnMouseDown()
     {
         MouseIsDragging = !MouseIsDragging;
+
+		if(!MouseIsDragging) {
+			// raycast should ignore the tower
+			int mask = 1 << TOWER_LAYER_NUMBER;
+			mask = ~mask;
+			RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, mask);
+			if (hit) {
+				Transform objectHit = hit.transform;
+				// Send the object to the other player
+
+			}
+
+		}
     }
 
     private void DraggingTower()
