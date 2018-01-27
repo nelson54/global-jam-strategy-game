@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class PlaceableTowerSpot : MonoBehaviour {
 
+	[SerializeField] bool SnapToCenter;
+
 	SpriteRenderer SpriteToChange;
+
+	// Colors when highlighted/Unhighlighted
 	[SerializeField] Color Unhighlighted;
 	[SerializeField] Color Highlighted;
 
