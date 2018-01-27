@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyPathing : MonoBehaviour {
+public class EnemyPathing : Singleton<EnemyPathing> {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
+	//public Dictionary<string, List<
+
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
 }
