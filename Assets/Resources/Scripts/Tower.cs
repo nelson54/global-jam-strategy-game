@@ -13,7 +13,7 @@ public class Tower : MonoBehaviour {
     [SerializeField] float FireRate;
     [SerializeField] GameObject Bullet;
     [SerializeField] float BulletSpeed;
-    public enum State { FindNextTarget, StartShooting }
+    public enum State { FindNextTarget, StartShooting, Disabled }
     public State SwitchStates;
     //Stores the current enemy being shot at
     public GameObject EnemyBeingShot;
@@ -77,6 +77,8 @@ public class Tower : MonoBehaviour {
         //While the game object is being dragged set its position to the mouse position
         if (MouseIsDragging)
         {
+            //Disable the tower once you're dragging it
+            SwitchStates = State.Disabled;
             Vector3 TrueMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 MousePosition = new Vector3(TrueMousePosition.x, TrueMousePosition.y, transform.position.z);
 			// bound the tracking only to valid positions
@@ -96,6 +98,9 @@ public class Tower : MonoBehaviour {
                 break;
             case State.FindNextTarget:
                 FindNextTarget();
+                break;
+            case State.Disabled:
+                TowerIsDisabled();
                 break;
         }
     }
@@ -133,5 +138,10 @@ public class Tower : MonoBehaviour {
                 }
             }
         }
+    }
+
+    private void TowerIsDisabled()
+    {
+        //Added in case we need certain behavior while the tower is disabled
     }
 }
