@@ -5,7 +5,7 @@ using UnityEngine;
 public class Tower : MonoBehaviour {
 
 	// The layer number for the tower
-	const int TOWER_LAYER_NUMBER = 11;
+	static int TOWER_IGNORE_MASK;
 
     //The bool that detects if this specific tower is being dragged
     private bool MouseIsDragging;
@@ -19,6 +19,7 @@ public class Tower : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+		TOWER_IGNORE_MASK = ~(1 << LayerMask.NameToLayer("Tower")) | (1 << LayerMask.NameToLayer("Tower Detector"));
         //Initialize the tower as not being dragged
         MouseIsDragging = false;
     }
@@ -33,13 +34,20 @@ public class Tower : MonoBehaviour {
     //When the mouse is clicked on the object toggle the dragging bool
     private void OnMouseDown()
     {
-        MouseIsDragging = !MouseIsDragging;
+		// Start dragging if the player isn't dragging
+		if(PlayerManager.instance.towerBeingDragged == null) {
+			MouseIsDragging = true;
+			PlayerManager.instance.towerBeingDragged = this;
+		}
 
-		if(!MouseIsDragging) {
-			// raycast should ignore the tower/tower detector
-			int mask = (1 << LayerMask.NameToLayer("Tower")) | (1 << LayerMask.NameToLayer("Tower Detector"));
-			mask = ~mask;
-			RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, mask);
+		// If the player is already dragging, check to see if we're dragging this one.
+		else if(PlayerManager.instance.towerBeingDragged == this) {
+			// Stop dragging
+			MouseIsDragging = false;
+			PlayerManager.instance.towerBeingDragged = null;
+
+			// Raycast to see where we're trying to put the tower
+			RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, TOWER_IGNORE_MASK);
 			if (hit) {
 				TowerSendPlatform platform = hit.transform.GetComponent<TowerSendPlatform>();
 				if(platform != null) {
@@ -48,6 +56,7 @@ public class Tower : MonoBehaviour {
 
 				}
 			}
+
 		}
 
     }
@@ -63,8 +72,6 @@ public class Tower : MonoBehaviour {
 			if(MousePosition.x > -8.8f && MousePosition.x < 8.8f && MousePosition.y < 5f && MousePosition.y > -3.8f) {
 				gameObject.transform.position = MousePosition;
 			}
-			
-
         }
     }
 
