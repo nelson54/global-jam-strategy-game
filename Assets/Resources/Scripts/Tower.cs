@@ -8,7 +8,7 @@ public class Tower : MonoBehaviour {
 	public static int TOWER_IGNORE_MASK { get; private set; }
 
     //The bool that detects if this specific tower is being dragged
-    private bool MouseIsDragging;
+    public bool MouseIsDragging;
     private float Timer = 0;
     [SerializeField] float FireRate;
     [SerializeField] GameObject Bullet;
@@ -48,13 +48,17 @@ public class Tower : MonoBehaviour {
 		// Start dragging if the player isn't dragging
 		if(PlayerManager.instance.towerBeingDragged == null) {
 			MouseIsDragging = true;
-			PlayerManager.instance.towerBeingDragged = this;
+            //Disable the tower once you're dragging it
+            SwitchStates = State.Disabled;
+            PlayerManager.instance.towerBeingDragged = this;
 		}
 
 		// If the player is already dragging, check to see if we're dragging this one.
 		else if(PlayerManager.instance.towerBeingDragged == this) {
 			// Stop dragging
 			MouseIsDragging = false;
+            //Enable the tower once you stop dragging it
+            SwitchStates = State.FindNextTarget;
 			PlayerManager.instance.towerBeingDragged = null;
 
 			// Raycast to see where we're trying to put the tower
@@ -77,8 +81,6 @@ public class Tower : MonoBehaviour {
         //While the game object is being dragged set its position to the mouse position
         if (MouseIsDragging)
         {
-            //Disable the tower once you're dragging it
-            SwitchStates = State.Disabled;
             Vector3 TrueMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 MousePosition = new Vector3(TrueMousePosition.x, TrueMousePosition.y, transform.position.z);
 			// bound the tracking only to valid positions
@@ -86,6 +88,7 @@ public class Tower : MonoBehaviour {
 				gameObject.transform.position = MousePosition;
 			}
         }
+        
     }
 
     //Contains the switch statement that tells the tower what to do
