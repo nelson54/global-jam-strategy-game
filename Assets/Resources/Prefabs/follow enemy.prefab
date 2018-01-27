@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212315482974155060}
   - component: {fileID: 114528135484369388}
   - component: {fileID: 50305049359925222}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: follow enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,10 +73,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a90dbf169ca44607aae7ccd9dab20af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultSpeed: 1
   damage: 5
+  speed: 1
+  Health: 0
+  slowed: 0
+  slowSpeed: 0.3
+  slowTime: 0
+  slowLength: 0.6
   nextNode: {fileID: 0}
   epsilon: 0.1
-  speed: 1
 --- !u!212 &212315482974155060
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -7,12 +7,13 @@ public abstract class Enemy : MonoBehaviour {
 
 	public float damage = 1f;
 	public float speed;
-	public float cashValue = 50;
+    public float Health;
 
-	protected bool slowed = false;
-	protected float slowSpeed = .3f;
-	protected float slowTime = 0f;
-	protected float slowLength = .6f;
+    public bool slowed = false;
+	public float slowSpeed = .3f;
+	public float slowTime = 0f;
+	public float slowLength = .6f;
+	public float cashValue = 50;
 
 	protected virtual void Start() {
 		speed = defaultSpeed;
@@ -46,4 +47,13 @@ public abstract class Enemy : MonoBehaviour {
 			speed = defaultSpeed;
 		}
 	}
+
+    public void LoseHealth(float BulletDamage)
+    {
+        Health -= BulletDamage;
+        if (Health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 }
