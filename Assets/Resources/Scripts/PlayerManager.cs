@@ -8,14 +8,16 @@ public class PlayerManager : Singleton<PlayerManager> {
 	public float currentHealth;
 	//public PlayerColor color;  //TODO define this
 
+	public HealthChangedEvent healthChanged;
+
 	public float health {
 		get { return currentHealth; }
 		set {
 			var oldVal = currentHealth;
-			currentHealth = Mathf.Max(value, 0f);
+			currentHealth = Mathf.Clamp(value, 0f, initialHealth);
 
 			if (currentHealth != oldVal) {
-				UpdateHealthDisplay ();
+				OnHealthChanged ();
 				if (currentHealth <= 0) {
 					OnPlayerHasLost ();
 				}
@@ -38,12 +40,17 @@ public class PlayerManager : Singleton<PlayerManager> {
 		
 	void Start () {
 		//TODO get a reference to the player health meter	
+
+		if (healthChanged == null) {
+			healthChanged = new HealthChangedEvent ();
+		}
+
 		//TODO move this into the game flow management somehow!
 		StartGame();
 	}
 	
-	void UpdateHealthDisplay() {
-		//TODO really updates of a canvas item
+	void OnHealthChanged() {
+		healthChanged.Invoke (currentHealth, initialHealth); //TODO add in the player identifier (modify event)
 		Debug.Log( string.Format("Player's base Has {0} hp", currentHealth) ); 
 	}
 

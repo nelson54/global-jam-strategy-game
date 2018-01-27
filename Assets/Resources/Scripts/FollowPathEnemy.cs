@@ -7,7 +7,6 @@ public class FollowPathEnemy : Enemy {
 
 	public EnemyPathNode nextNode;
 	public float epsilon = 0.1f;
-	public float speed = 1f;
 
 	private Rigidbody2D body;
 
@@ -17,6 +16,7 @@ public class FollowPathEnemy : Enemy {
 
 	//TODO need to change this to be a more traditional parametric path with t values and reckoning
 	protected override void Update () {
+		base.Update ();
 		UpdateVelocityForPath ();
 	}
 
