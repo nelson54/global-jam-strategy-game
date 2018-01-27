@@ -368,6 +368,52 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 85511417}
+--- !u!1001 &87346020
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4106016026433320, guid: 9136df9da2e0f37459100c73b094377b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.8694774
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106016026433320, guid: 9136df9da2e0f37459100c73b094377b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -3.6789756
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106016026433320, guid: 9136df9da2e0f37459100c73b094377b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106016026433320, guid: 9136df9da2e0f37459100c73b094377b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106016026433320, guid: 9136df9da2e0f37459100c73b094377b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106016026433320, guid: 9136df9da2e0f37459100c73b094377b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106016026433320, guid: 9136df9da2e0f37459100c73b094377b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106016026433320, guid: 9136df9da2e0f37459100c73b094377b, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361966581286410, guid: 9136df9da2e0f37459100c73b094377b, type: 2}
+      propertyPath: m_Name
+      value: Tower (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 9136df9da2e0f37459100c73b094377b, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &156290542
 Prefab:
   m_ObjectHideFlags: 0
@@ -1296,52 +1342,6 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ec4c6f583d3b4ef4c9a1b7f318bda6e7, type: 2}
-  m_IsPrefabParent: 0
---- !u!1001 &1595514724
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4106016026433320, guid: 9136df9da2e0f37459100c73b094377b, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4106016026433320, guid: 9136df9da2e0f37459100c73b094377b, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.68
-      objectReference: {fileID: 0}
-    - target: {fileID: 4106016026433320, guid: 9136df9da2e0f37459100c73b094377b, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4106016026433320, guid: 9136df9da2e0f37459100c73b094377b, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4106016026433320, guid: 9136df9da2e0f37459100c73b094377b, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4106016026433320, guid: 9136df9da2e0f37459100c73b094377b, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4106016026433320, guid: 9136df9da2e0f37459100c73b094377b, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4106016026433320, guid: 9136df9da2e0f37459100c73b094377b, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1361966581286410, guid: 9136df9da2e0f37459100c73b094377b, type: 2}
-      propertyPath: m_Name
-      value: Tower (2)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 9136df9da2e0f37459100c73b094377b, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1658261043
 Prefab:

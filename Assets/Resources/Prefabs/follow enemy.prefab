@@ -102,7 +102,7 @@ MonoBehaviour:
   defaultSpeed: 1
   damage: 5
   speed: 1
-  Health: 10
+  Health: 4
   slowed: 0
   slowSpeed: 0.3
   slowTime: 0
