@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4168755945930302}
   - component: {fileID: 212420689421696278}
   m_Layer: 0
-  m_Name: white_square
+  m_Name: tower pen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
