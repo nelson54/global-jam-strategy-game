@@ -721,6 +721,7 @@ MonoBehaviour:
   SnapToCenter: 0
   tower: {fileID: 0}
   CanFire: 0
+  CanPutMultiple: 1
 --- !u!114 &196255294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -735,6 +736,7 @@ MonoBehaviour:
   SnapToCenter: 0
   tower: {fileID: 0}
   CanFire: 0
+  CanPutMultiple: 1
 --- !u!114 &196255295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -749,6 +751,7 @@ MonoBehaviour:
   SnapToCenter: 0
   tower: {fileID: 0}
   CanFire: 0
+  CanPutMultiple: 1
 --- !u!4 &199396245 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4014649573416862, guid: ec4c6f583d3b4ef4c9a1b7f318bda6e7,
@@ -3406,6 +3409,7 @@ MonoBehaviour:
   SnapToCenter: 0
   tower: {fileID: 0}
   CanFire: 0
+  CanPutMultiple: 0
 --- !u!4 &1765203928 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4014649573416862, guid: ec4c6f583d3b4ef4c9a1b7f318bda6e7,

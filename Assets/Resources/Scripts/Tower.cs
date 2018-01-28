@@ -197,11 +197,13 @@ public class Tower : MonoBehaviour {
 
 	public void setPlaceableTowerSpot(PlaceableTowerSpot newSpot) {
 		if (newSpot == null || newSpot.isFull()) {
-			//spot = towerPen;
+			// return to initial spot
 			transform.position = new Vector3(CurrentSpot.transform.position.x, CurrentSpot.transform.position.y, transform.position.z);
 		}
 		else {
-			transform.position = new Vector3(newSpot.transform.position.x, newSpot.transform.position.y, transform.position.z);
+			// place self on new spot
+			if(newSpot.SnapToCenter)
+				transform.position = new Vector3(newSpot.transform.position.x, newSpot.transform.position.y, transform.position.z);
 			newSpot.tower = this;
 			CurrentSpot.tower = null;
 			CurrentSpot = newSpot;
