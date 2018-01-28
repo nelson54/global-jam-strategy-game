@@ -11,7 +11,7 @@ public class Spawner : MonoBehaviour {
 
     private EnemyPathNode startNode;
 
-    void Start () {
+    void Awake () {
         startNode = GetComponent<EnemyPathNode>();
 
 		if (spawns == null)

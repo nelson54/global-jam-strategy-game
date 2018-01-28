@@ -414,7 +414,7 @@ MonoBehaviour:
   nextNodes:
   - {fileID: 114618276229350162}
   - {fileID: 114055004756894750}
-  nodeType: 0
+  nodeType: 1
 --- !u!114 &114113183725486632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -470,7 +470,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextNodes:
   - {fileID: 114105156868667264}
-  nodeType: 1
+  nodeType: 0
 --- !u!114 &114443950934023084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -482,7 +482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc80c87c06e0d647bf6b3fd1d796542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnInterval: 15
+  spawnInterval: 1
   SpawnWavesIsRunning: 0
 --- !u!114 &114459890445421994
 MonoBehaviour:
@@ -495,7 +495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc80c87c06e0d647bf6b3fd1d796542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnInterval: 15
+  spawnInterval: 1
   SpawnWavesIsRunning: 0
 --- !u!114 &114546960631815640
 MonoBehaviour:
