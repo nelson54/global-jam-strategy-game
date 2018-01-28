@@ -9,10 +9,13 @@ public class Tower : MonoBehaviour {
 
     //The bool that detects if this specific tower is being dragged
     public bool MouseIsDragging;
-    private float Timer = 0;
-    [SerializeField] float FireRate;
-    [SerializeField] GameObject Bullet;
-    [SerializeField] float BulletSpeed;
+    public float Timer = 0;
+	[SerializeField]
+	public float FireRate;
+    [SerializeField]
+	public GameObject Bullet;
+    [SerializeField]
+	public float BulletSpeed;
     public enum State { FindNextTarget, StartShooting, Disabled, Dead }
     public State SwitchStates;
     //Stores the current enemy being shot at
@@ -22,7 +25,7 @@ public class Tower : MonoBehaviour {
 	public PlaceableTowerSpot CurrentSpot;
 	private bool isDead = false;
 
-	public void MakeDead() { 
+	public void MakeDead() {
 		SwitchStates = State.Disabled;
 		GetComponent<SpriteRenderer> ().color = Color.white;
 
@@ -48,7 +51,7 @@ public class Tower : MonoBehaviour {
     {
 		if (isDead)
 			return;
-		
+
         DraggingTower();
         StateMachine();
         //If an enemy gets killed (Becomes Null) when it's being shot remove it from the list and find a new target
@@ -74,7 +77,6 @@ public class Tower : MonoBehaviour {
 		if (PlayerManager.instance.isDead) {
 			SwitchStates = State.FindNextTarget;
 		}
-
 		// Start dragging if the player isn't dragging
 		else if(PlayerManager.instance.towerBeingDragged == null) {
 			
@@ -165,7 +167,7 @@ public class Tower : MonoBehaviour {
         }
     }
 
-    private void StartShooting()
+	public virtual void StartShooting()
     {
         Timer += Time.deltaTime;
         if(Timer > FireRate)
