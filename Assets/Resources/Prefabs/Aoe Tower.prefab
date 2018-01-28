@@ -144,7 +144,7 @@ MonoBehaviour:
   EnemyBeingShot: {fileID: 0}
   Type: 4
   CurrentSpot: {fileID: 0}
-  missRate: 0.2
+  missRate: 0.3
   bulletDamage: 1
   effect: {fileID: 1090154134279444, guid: 2995f6111d1624d62b738bf1d69ebdda, type: 2}
 --- !u!212 &212766709588182406
