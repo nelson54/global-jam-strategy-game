@@ -15,5 +15,6 @@ public class NetworkLobbyHook : LobbyHook {
 		var gamePlayer = gamePlayerGO.GetComponent<NetworkedPlayer> ();
 
 		gamePlayer.playerColor = lobbyPlayer.playerColor;
+		gamePlayer.playerName = lobbyPlayer.playerName;
 	}
 }
