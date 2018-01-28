@@ -9,12 +9,14 @@ public class PlaceableTowerSpot : MonoBehaviour {
 	SpriteRenderer SpriteToChange;
 
 	// Colors when highlighted/Unhighlighted
-	[SerializeField] Color Unhighlighted;
-	[SerializeField] Color Highlighted;
+	Color Unhighlighted;
+	Color Highlighted;
 
 	// Use this for initialization
 	void Start () {
 		SpriteToChange = GetComponent<SpriteRenderer>();
+		Unhighlighted = SpriteToChange.color;
+		Highlighted = SpriteToChange.color * 1.3f;
 	}
 	
 	// Update is called once per frame

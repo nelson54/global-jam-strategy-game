@@ -70,6 +70,8 @@ public class Tower : MonoBehaviour {
 					// Send the object to the other player
 					Debug.Log("sending to player " + platform.Player);
 
+
+
 					// Stop dragging
 					MouseIsDragging = false;
                     SwitchStates = State.FindNextTarget;    // Enable the tower once you stop dragging it
