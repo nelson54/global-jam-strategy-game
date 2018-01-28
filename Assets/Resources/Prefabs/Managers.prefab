@@ -63,6 +63,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   waveInterval: 15
+  timeBeforeFirstSpawn: 20
 --- !u!114 &114683152005237978
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -105,7 +106,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_MethodName: OnPlayerLoseHealth
+        m_MethodName: LoseGame
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -160,6 +161,8 @@ MonoBehaviour:
     prefab: {fileID: 1361966581286410, guid: 9136df9da2e0f37459100c73b094377b, type: 2}
   - type: 1
     prefab: {fileID: 1341213572596698, guid: d273b2db91c66904db6334cdc2b5bdc1, type: 2}
+  - type: 2
+    prefab: {fileID: 1361966581286410, guid: f408cfa40cf8e4942ac3caf408cd571d, type: 2}
 --- !u!114 &114868997647428144
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -177,3 +180,4 @@ MonoBehaviour:
   FactoryTypes:
   - {fileID: 1385793004025254, guid: 9377261848dbf514ab185ee60f4f1ca2, type: 2}
   - {fileID: 1739410144412308, guid: 42a12e62b865c9a4ca9adfff467e189d, type: 2}
+  - {fileID: 1385793004025254, guid: 04e941c5c209644aaac82d6371a8843c, type: 2}

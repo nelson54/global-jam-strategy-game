@@ -53,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1361966581286410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.78, y: -4.571618, z: -2}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4677458183443818}
@@ -136,6 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MouseIsDragging: 0
+  Timer: 0
   FireRate: 0.3
   Bullet: {fileID: 1193277543246602, guid: 4d22dd99e7e95884d81a3a407e52edfa, type: 2}
   BulletSpeed: 4
@@ -177,7 +178,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 8377ad2f6dc7d9d409ec52b5c5743b9f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b114d2a6d3dcff04bb230bcb56190ef9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
