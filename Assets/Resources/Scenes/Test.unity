@@ -3276,6 +3276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SnapToCenter: 0
   tower: {fileID: 0}
+  CanFire: 0
 --- !u!4 &1765203928 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4014649573416862, guid: ec4c6f583d3b4ef4c9a1b7f318bda6e7,
