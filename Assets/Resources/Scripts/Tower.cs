@@ -38,7 +38,11 @@ public class Tower : MonoBehaviour {
         DraggingTower();
         StateMachine();
         //If an enemy gets killed (Becomes Null) when it's being shot remove it from the list and find a new target
-        if(EnemyBeingShot == null && SwitchStates != State.Disabled)
+        if(PlayerManager.instance.isDead)
+        {
+            SwitchStates = State.Disabled;
+        }
+        else if(EnemyBeingShot == null && SwitchStates != State.Disabled)
         {
             SwitchStates = State.FindNextTarget;
         }
@@ -51,8 +55,12 @@ public class Tower : MonoBehaviour {
     //When the mouse is clicked on the object toggle the dragging bool
     private void OnMouseDown()
     {
+        if(PlayerManager.instance.isDead)
+        {
+            SwitchStates = State.FindNextTarget;
+        }
 		// Start dragging if the player isn't dragging
-		if(PlayerManager.instance.towerBeingDragged == null) {
+		else if(PlayerManager.instance.towerBeingDragged == null) {
 			
 			MouseIsDragging = true;
             //Disable the tower once you're dragging it
