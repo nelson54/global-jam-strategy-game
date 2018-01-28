@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 114801387234411724}
   - component: {fileID: 61488972083275622}
   m_Layer: 12
-  m_Name: tower factory
+  m_Name: freeze factory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb9d599000aa4db98762b64823df331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerType: 0
+  towerType: 2
   progressBar: {fileID: 114729337941700530}
   towerPen: {fileID: 114897528719402418}
   isBuilding: 0
@@ -308,7 +308,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b036d9b0575453c46909d2131aaabbd2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8c726b6260073a84c96c565383b043a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

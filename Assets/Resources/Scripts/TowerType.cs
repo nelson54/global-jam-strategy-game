@@ -3,5 +3,8 @@
 public enum TowerType
 {
 	Normal,
-	Piercing
+	Piercing,
+    Freeze,
+    RapidFire,
+    AoE
 }
