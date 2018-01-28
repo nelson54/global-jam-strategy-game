@@ -24,12 +24,6 @@ public abstract class Enemy : MonoBehaviour {
 		if (slowed) {
 			slowTick ();
 		}
-
-		if (Input.GetKeyDown(KeyCode.Space)) {
-			if (!slowed) {
-				startSlow ();
-			}
-		}
 	}
 
 	public void startSlow() {
@@ -53,6 +47,10 @@ public abstract class Enemy : MonoBehaviour {
     {
         //If the enemy is armored and they are not being hit with armorpiercing bullets, deal half damage
         if(Armored && BulletType != BulletTyper.ArmorPiercing)
+        {
+            Health -= BulletDamage / 2;
+        }
+        else if (!Armored && BulletType == BulletTyper.ArmorPiercing)
         {
             Health -= BulletDamage / 2;
         }
