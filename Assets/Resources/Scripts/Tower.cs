@@ -42,7 +42,6 @@ public class Tower : MonoBehaviour {
         {
             SwitchStates = State.FindNextTarget;
         }
-        print(SwitchStates);
     }
 
 	//public void setTowerPen(TowerPen towerPen) {
