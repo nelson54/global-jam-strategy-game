@@ -81,6 +81,8 @@ public class PlayerManager : Singleton<PlayerManager> {
 	
 	void OnHealthChanged() {
 		healthChanged.Invoke (currentHealth, initialHealth); //TODO add in the player identifier (modify event)
+		localNetworkedPlayer.CmdUpdateHealth(currentHealth, initialHealth);
+
 		//Debug.Log( string.Format("Player's base Has {0} hp", currentHealth) ); 
 
 	}
