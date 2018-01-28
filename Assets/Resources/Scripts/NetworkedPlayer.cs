@@ -15,6 +15,9 @@ public class NetworkedPlayer : NetworkBehaviour {
 	[SyncVar] public Color playerColor;
 	[SyncVar] public bool isAlive;
 
+	public GameObject receiveArea;
+	private float receivePadding = 0.2f;
+
 	public override void OnStartLocalPlayer() {
 		Debug.Log ( string.Format("local player is '{0}'", playerName) );
 		PlayerManager.instance.localNetworkedPlayer = this;
@@ -39,7 +42,20 @@ public class NetworkedPlayer : NetworkBehaviour {
 		}
 
 		Debug.Log (string.Format ("received a tower from {0}", sender));
+
 		//TODO spawn tower
+		var bounds = receiveArea.GetComponent<BoxCollider2D>().bounds;
+		var x = Random.Range (bounds.min.x + receivePadding, bounds.max.x - receivePadding);
+		var y = Random.Range (bounds.min.y + receivePadding, bounds.max.y - receivePadding);
+
+		//TODO move into TowerPlacer
+		var color = Color.grey;
+		foreach (var player in FindObjectsOfType<NetworkedPlayer>()) {
+			if (player.netId == sender) {
+				color = player.playerColor;
+				break;
+			}
+		}
 	}
 
 	[Command]
