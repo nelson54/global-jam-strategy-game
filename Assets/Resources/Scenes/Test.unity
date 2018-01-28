@@ -692,6 +692,63 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4f973c0446afbbf448c2c4dfc8ada1b2, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &196255290 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1614035945023284, guid: 4f973c0446afbbf448c2c4dfc8ada1b2,
+    type: 2}
+  m_PrefabInternal: {fileID: 196255289}
+--- !u!1 &196255291 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1970744493405572, guid: 4f973c0446afbbf448c2c4dfc8ada1b2,
+    type: 2}
+  m_PrefabInternal: {fileID: 196255289}
+--- !u!1 &196255292 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1508188265621500, guid: 4f973c0446afbbf448c2c4dfc8ada1b2,
+    type: 2}
+  m_PrefabInternal: {fileID: 196255289}
+--- !u!114 &196255293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 196255290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d865ac8e11e0f442b2b012377dc8b34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SnapToCenter: 0
+  tower: {fileID: 0}
+  CanFire: 0
+--- !u!114 &196255294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 196255291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d865ac8e11e0f442b2b012377dc8b34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SnapToCenter: 0
+  tower: {fileID: 0}
+  CanFire: 0
+--- !u!114 &196255295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 196255292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d865ac8e11e0f442b2b012377dc8b34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SnapToCenter: 0
+  tower: {fileID: 0}
+  CanFire: 0
 --- !u!4 &199396245 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4014649573416862, guid: ec4c6f583d3b4ef4c9a1b7f318bda6e7,
