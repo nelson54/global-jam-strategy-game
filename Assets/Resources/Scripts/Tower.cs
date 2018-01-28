@@ -68,15 +68,16 @@ public class Tower : MonoBehaviour {
 				// Placing on one of the sending platformers
 				TowerSendPlatform platform = hit.transform.GetComponent<TowerSendPlatform>();
 				if(platform != null && platform.enabled) {
+
 					// Send the object to the other player
-					Debug.Log("sending to player " + platform.Player);
+					PlayerManager.instance.localNetworkedPlayer.CmdSendTower (
+						TowerType.Normal, 
+						platform.networkedPlayer
+					);
 
+					PlayerManager.instance.towerBeingDragged = null;
 
-
-					// Stop dragging
-					MouseIsDragging = false;
-                    SwitchStates = State.FindNextTarget;    // Enable the tower once you stop dragging it
-                    PlayerManager.instance.towerBeingDragged = null;
+					Destroy (gameObject);
 					return;
 				}
 
