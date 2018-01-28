@@ -19,6 +19,11 @@ public class ColorInitialization : Singleton<ColorInitialization> {
 
 		foreach(NetworkedPlayer player in networkedPlayers) {
 			if(PlayerManager.instance.localNetworkedPlayer != player) {
+				var index = i;
+				player.EventPlayerLost += (id) => {
+					DisableArea(index);
+				};
+
 				PlayerIns[i].color = player.playerColor;
 
 				var towerSpot = PlayerIns [i].GetComponent<PlaceableTowerSpot> ();
@@ -34,10 +39,14 @@ public class ColorInitialization : Singleton<ColorInitialization> {
 		}
 		// Set the rest of the colors to grey
 		for(; i < PlayerIns.Length; i++) {
-			PlayerIns[i].color = Color.grey;
-			PlayerOuts[i].color = Color.grey;
-			PlayerIns[i].GetComponent<TowerSendPlatform>().enabled = false;
-			PlayerIns[i].GetComponent<PlaceableTowerSpot>().enabled = false;
+			DisableArea (i);
 		}
+	}
+
+	private void DisableArea(int i) {
+		PlayerIns[i].color = Color.grey;
+		PlayerOuts[i].color = Color.grey;
+		PlayerIns[i].GetComponent<TowerSendPlatform>().enabled = false;
+		PlayerIns[i].GetComponent<PlaceableTowerSpot>().enabled = false;
 	}
 }

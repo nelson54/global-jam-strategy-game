@@ -17,6 +17,7 @@ public class Tower : MonoBehaviour {
     public State SwitchStates;
     //Stores the current enemy being shot at
     public GameObject EnemyBeingShot;
+    public TowerType Type;
 
 	public PlaceableTowerSpot CurrentSpot;
 
