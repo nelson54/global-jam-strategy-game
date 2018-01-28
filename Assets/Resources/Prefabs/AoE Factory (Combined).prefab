@@ -270,7 +270,7 @@ MonoBehaviour:
   progressBar: {fileID: 114769887508790286}
   towerPen: {fileID: 114008508599266268}
   isBuilding: 0
-  buildingCost: 100
+  buildingCost: 200
   totalWork: 1
   currentWork: 1.012607
   workRate: 0.1
@@ -308,7 +308,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b036d9b0575453c46909d2131aaabbd2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8a1b262d8dee52b4fb1cd6f16baaff30, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
