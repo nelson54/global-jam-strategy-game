@@ -8,6 +8,7 @@ public abstract class Enemy : MonoBehaviour {
 	public float damage = 1f;
 	public float speed;
     public float Health;
+    public bool Armored;
 
     public bool slowed = false;
 	public float slowSpeed = .3f;
@@ -48,9 +49,18 @@ public abstract class Enemy : MonoBehaviour {
 		}
 	}
 
-    public void LoseHealth(float BulletDamage)
+    public void LoseHealth(float BulletDamage, BulletTyper BulletType)
     {
-        Health -= BulletDamage;
+        //If the enemy is armored and they are not being hit with armorpiercing bullets, deal half damage
+        if(Armored && BulletType != BulletTyper.ArmorPiercing)
+        {
+            Health -= BulletDamage / 2;
+        }
+        //Otherwise do normal damage
+        else
+        {
+            Health -= BulletDamage;
+        }
         if (Health <= 0)
         {
             Destroy(gameObject);

@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum BulletTyper { Normal, ArmorPiercing }
+
 public class Bullet : MonoBehaviour {
 
     [SerializeField] float BulletDamage;
     [SerializeField] float DestroyTime;
     private float Timer;
+    public BulletTyper BulletType;
 
     // Use this for initialization
     void Start () {
@@ -22,7 +25,7 @@ public class Bullet : MonoBehaviour {
     {
         if(collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            collider.GetComponent<Enemy>().LoseHealth(BulletDamage);
+            collider.GetComponent<Enemy>().LoseHealth(BulletDamage, BulletType);
             Destroy(gameObject);
         }
     }

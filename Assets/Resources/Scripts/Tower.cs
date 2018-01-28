@@ -146,8 +146,10 @@ public class Tower : MonoBehaviour {
             //Instantiate an object and set their velocity to the calculated value of where the enemy they're shooting will be
             GameObject InstantiatedBullet;
             InstantiatedBullet = Instantiate(Bullet, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0f), transform.rotation);
-            //Draw a vector from the tower to the enemy
-            Vector2 VectorToEnemy = (EnemyBeingShot.transform.position - this.transform.position);
+			Rigidbody2D body = EnemyBeingShot.GetComponent<Rigidbody2D> ();
+			//Draw a vector from the tower to the enemy
+			Vector2 VectorToEnemy = (EnemyBeingShot.transform.position - this.transform.position);
+			VectorToEnemy = VectorToEnemy + (body.velocity * Time.deltaTime);
             //Normalize the vector from the tower to the enemy and apply the bullet speed to it
             InstantiatedBullet.GetComponent<Rigidbody2D>().velocity = VectorToEnemy.normalized * BulletSpeed;
             Timer = 0;

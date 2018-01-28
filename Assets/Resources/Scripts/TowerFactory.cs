@@ -13,7 +13,7 @@ public class TowerFactory : MonoBehaviour {
 	public int buildingCost = 0;
 	public float totalWork = 1f;
 	public float currentWork = 0f;
-	public float workRate = .1f;
+	public float workRate = 1f;
 
 	private PlayerManager playerManager;
 
@@ -62,7 +62,7 @@ public class TowerFactory : MonoBehaviour {
 	}
 
 	void WorkTick() {
-		currentWork += (workRate * Time.deltaTime);
+		currentWork += Time.deltaTime;
 		progressBar.OnBuildingProgress (currentWork, totalWork);
 		if (currentWork >= totalWork) {
 			FinishBuilding ();
