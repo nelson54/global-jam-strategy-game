@@ -24,6 +24,8 @@ public class ColorInitialization : Singleton<ColorInitialization> {
 					DisableArea(index);
 				};
 
+				player.receiveArea = PlayerOuts [i].gameObject;
+
 				PlayerIns[i].color = player.playerColor;
 
 				var towerSpot = PlayerIns [i].GetComponent<PlaceableTowerSpot> ();

@@ -1,34 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class TowerPlacer : Singleton<TowerPlacer> {
 
-    public List<GameObject> Towers;
-    GameObject TowerToPlace;
-    Transform PlacementPosition;
+	[Serializable]
+	public class TowerPrefab {
+		public TowerType type;
+		public GameObject prefab;
+	}
+
+	public List<TowerPrefab> towerPrefabs;
 
 	// Use this for initialization
 	void Start () {
-        Towers = new List<GameObject>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		if (towerPrefabs == null)
+			towerPrefabs = new List<TowerPrefab> ();
 	}
 
     public GameObject PlaceATower(TowerType TypeOfTower, Color PlayerColor)
     {
-        for(int i = 0; i < Towers.Count; i++)
-        {
-            if(Towers[i].GetComponent<Tower>().Type == TypeOfTower)
-            {
-                TowerToPlace = Towers[i];
-                break;
-            }
-        }
-        GameObject InstancedTower = Instantiate(TowerToPlace, PlacementPosition);
+		GameObject TowerToPlace = null;
+		foreach (var towerPrefab in towerPrefabs) {
+			if (towerPrefab.type == TypeOfTower) {
+				TowerToPlace = towerPrefab.prefab;
+				break;
+			}
+		}
+
+        GameObject InstancedTower = Instantiate(TowerToPlace);
         InstancedTower.GetComponent<SpriteRenderer>().color = PlayerColor;
         return InstancedTower;
     }
