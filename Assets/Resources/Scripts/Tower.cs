@@ -17,7 +17,6 @@ public class Tower : MonoBehaviour {
     public State SwitchStates;
     //Stores the current enemy being shot at
     public GameObject EnemyBeingShot;
-    public List<GameObject> DetectedEnemies; 
 
 	private PlaceableTowerSpot spot;
 
@@ -30,7 +29,6 @@ public class Tower : MonoBehaviour {
 		TOWER_IGNORE_MASK = ~LayerMask.GetMask("Tower", "Tower Detector");
         //Initialize the tower as not being dragged
         MouseIsDragging = false;
-        DetectedEnemies = new List<GameObject>();
     }
 
     // Update is called once per frame
@@ -42,7 +40,6 @@ public class Tower : MonoBehaviour {
         if(EnemyBeingShot == null && !MouseIsDragging)
         {
             SwitchStates = State.FindNextTarget;
-            DetectedEnemies.Remove(EnemyBeingShot);
         }
     }
 
@@ -162,19 +159,27 @@ public class Tower : MonoBehaviour {
 
     }
 
+    //TODO Find next target isn't always been called when it should??? find out why
     private void FindNextTarget()
     {
-        if(DetectedEnemies.Count != 0)
+        GameObject EnemyCircleDetector = transform.GetChild(0).gameObject;
+        var EnemyList = Physics2D.OverlapCircleAll(transform.position, EnemyCircleDetector.GetComponent<CircleCollider2D>().radius, 1 << LayerMask.NameToLayer("Enemies"));
+        if(EnemyList.Length > 0)
         {
-            for (int i = 0; i < DetectedEnemies.Count; i++)
+            float CurrentClosestDistanceToNextNode = 10000f;
+            for (int i = 0; i < EnemyList.Length; i++)
             {
                 //If the enemy found in the list is not null start shooting at that
-                if (DetectedEnemies[i] != null)
+                if (EnemyList[i] != null)
                 {
-                    EnemyBeingShot = DetectedEnemies[i];
-                    SwitchStates = State.StartShooting;
+                    float PossibleNextNode = EnemyList[i].GetComponent<FollowPathEnemy>().DistanceToNextNodeCalculation();
+                    if (PossibleNextNode < CurrentClosestDistanceToNextNode)
+                    {
+                        EnemyBeingShot = EnemyList[i].gameObject;
+                    }
                 }
             }
+            SwitchStates = State.StartShooting;
         }
     }
 
