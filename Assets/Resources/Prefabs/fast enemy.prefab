@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a90dbf169ca44607aae7ccd9dab20af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSpeed: 3
+  defaultSpeed: 2
   damage: 5
-  speed: 1
+  speed: 2
   Health: 2
   Armored: 0
   slowed: 0
