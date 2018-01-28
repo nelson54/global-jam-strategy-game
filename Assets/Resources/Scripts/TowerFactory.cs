@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,11 +26,15 @@ public class TowerFactory : MonoBehaviour {
 	void Update () {
 		if(isBuilding) {
 			WorkTick ();
-		} else if (Input.GetKeyDown (KeyCode.Space)) {
-			Build (80, 1f);
+		} else if(Input.GetMouseButtonDown(0)) {
+			RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity);
+			if(hit && hit.transform == transform) {
+				Build (80, 1f);
+			}
 		}
-			
 	}
+
+	
 
 	public void Build(int cost, float totalWork) {
 		if (playerManager.money >= cost) {
