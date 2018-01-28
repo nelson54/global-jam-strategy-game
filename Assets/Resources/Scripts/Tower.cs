@@ -22,7 +22,6 @@ public class Tower : MonoBehaviour {
 
 	//private TowerPen towerPen;
 
-
     // Use this for initialization
     void Start()
     {
@@ -38,7 +37,7 @@ public class Tower : MonoBehaviour {
         DraggingTower();
         StateMachine();
         //If an enemy gets killed (Becomes Null) when it's being shot remove it from the list and find a new target
-        if(EnemyBeingShot == null && !MouseIsDragging)
+        if(EnemyBeingShot == null && SwitchStates != State.Disabled)
         {
             SwitchStates = State.FindNextTarget;
         }
@@ -88,7 +87,8 @@ public class Tower : MonoBehaviour {
 
 					// Stop dragging
 					MouseIsDragging = false;
-					SwitchStates = State.FindNextTarget;    // Enable the tower once you stop dragging it
+					if(CurrentSpot.CanFire)
+						SwitchStates = State.FindNextTarget;
 					PlayerManager.instance.towerBeingDragged = null;
 					return;
 				}
@@ -100,7 +100,8 @@ public class Tower : MonoBehaviour {
 
 			// Stop dragging
 			MouseIsDragging = false;
-			SwitchStates = State.FindNextTarget;	// Enable the tower once you stop dragging it
+			if(CurrentSpot.CanFire)
+				SwitchStates = State.FindNextTarget;
 			PlayerManager.instance.towerBeingDragged = null;
 		}
 

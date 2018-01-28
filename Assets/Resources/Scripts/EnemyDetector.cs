@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,7 +22,7 @@ public class EnemyDetector : MonoBehaviour {
         if (collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             //If the tower is not shooting, set it to start shooting, this will stop it from exiting the shooting state when we don't want it to
-            if (Tower.SwitchStates != Tower.State.StartShooting && !Tower.MouseIsDragging)
+            if (Tower.SwitchStates == Tower.State.FindNextTarget && !Tower.MouseIsDragging)
             {
                 Tower.SwitchStates = Tower.State.StartShooting;
                 Tower.EnemyBeingShot = collider.gameObject;

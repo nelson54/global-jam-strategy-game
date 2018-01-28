@@ -12,6 +12,9 @@ public class PlaceableTowerSpot : MonoBehaviour {
 	[System.NonSerialized] public Color Unhighlighted;
 	[System.NonSerialized] public Color Highlighted;
 
+	// Can the turret fire while on this spot?
+	public bool CanFire;
+
 	// Use this for initialization
 	void Start () {
 		SpriteToChange = GetComponent<SpriteRenderer>();

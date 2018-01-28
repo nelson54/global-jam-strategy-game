@@ -70,6 +70,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SnapToCenter: 1
   tower: {fileID: 0}
+  CanFire: 1
 --- !u!212 &212317350791582852
 SpriteRenderer:
   m_ObjectHideFlags: 1
