@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 212018857513514236}
   - component: {fileID: 114801387234411724}
   - component: {fileID: 61488972083275622}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: tower factory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,6 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SnapToCenter: 0
   tower: {fileID: 0}
+  CanFire: 0
 --- !u!114 &114964793331068652
 MonoBehaviour:
   m_ObjectHideFlags: 1
