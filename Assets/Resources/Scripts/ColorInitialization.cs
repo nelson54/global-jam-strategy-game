@@ -56,7 +56,7 @@ public class ColorInitialization : Singleton<ColorInitialization> {
 	private void DisableTowers(NetworkedPlayer player) {
 		var towers = FindObjectsOfType<Tower> ();
 		foreach (var tower in towers) {
-			var renderer = GetComponent<SpriteRenderer> ();
+			var renderer = tower.GetComponent<SpriteRenderer> ();
 			if (renderer.color == player.playerColor) {
 				tower.MakeDead ();
 			}
