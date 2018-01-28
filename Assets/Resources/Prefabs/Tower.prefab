@@ -54,7 +54,7 @@ Transform:
   m_GameObject: {fileID: 1361966581286410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -2}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children:
   - {fileID: 4677458183443818}
   m_Father: {fileID: 0}
@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec6c6479a2d0b0348983d00ccfd71205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MouseIsDragging: 0
   FireRate: 0.3
   Bullet: {fileID: 1193277543246602, guid: 4d22dd99e7e95884d81a3a407e52edfa, type: 2}
   BulletSpeed: 4
