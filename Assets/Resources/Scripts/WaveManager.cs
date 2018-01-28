@@ -18,9 +18,51 @@ public class WaveManager : Singleton<WaveManager> {
 
     public void Start()
     {
-        for(var i = 0; i < 10; i++)
+		float intensity = 1;
+		float intensityDelta = 1 / 5f;
+
+        for(var i = 0; i < 60; i++)
         {
-            waves.Add(MakeWave());
+			var wave = new Wave();
+
+			Wave.WaveSpawn waveSpawn = null;
+			if (i % 10 == 0) {
+				var spawner = GetRandomSpawner ();
+
+				var spawn = new BossSpawn ();
+				spawn.enemyPrefab = bossPrefab;
+				spawn.hp = 200 * intensityInterval;
+
+				waveSpawn = new Wave.WaveSpawn {
+					spawn = spawn,
+					spawner = spawner
+				};
+
+				wave.waveSpawns.Add(waveSpawn);
+			} 
+			else {
+				int numSpawns = Math.Min (5, intensity * 2); //this can be changed
+				for (int j = 0; j < numSpawns; j++) {
+					var spawner = GetRandomSpawner ();
+
+					var spawn = new BasicSpawn ();
+
+					int index = Random.Range (0, basicEnemyPrefabs.Count);
+
+					spawn.enemyPrefab = basicEnemyPrefabs [index];
+					spawn.size = (int)Mathf.Floor (waveInterval * defaultSpawnSizes [index]);
+					spawn.interval = .333f;
+
+					waveSpawn = new Wave.WaveSpawn {
+						spawn = spawn,
+						spawner = spawner
+					};
+
+					wave.waveSpawns.Add(waveSpawn);
+				}
+			}
+
+            waves.Add(wave);
         }
 
 		StartCoroutine (IncreaseIntensity ());
@@ -50,43 +92,7 @@ public class WaveManager : Singleton<WaveManager> {
 
 	protected Wave MakeWave(float intensity)
     {
-        var wave = new Wave();
-
-		int numSpawns = Math.Min (5, intensity * 2); //this can be changed
-        for (int i = 0; i < numSpawns; i++)
-        {
-            var spawner = GetRandomSpawner();
-
-			Wave.WaveSpawn waveSpawn = null;
-			if (i % 10 == 0) {
-				var spawn = new BossSpawn ();
-				spawn.enemyPrefab = bossPrefab;
-				spawn.hp = 200 * intensityInterval;
-
-				waveSpawn = new Wave.WaveSpawn
-				{
-					spawn = spawn,
-					spawner = spawner
-				};
-			} else {
-				var spawn = new BasicSpawn();
-
-				int index = Random.Range(0, basicEnemyPrefabs.Count);
-		
-				spawn.enemyPrefab = basicEnemyPrefabs[index];
-				spawn.size = (int)Mathf.Floor(waveInterval * defaultSpawnSizes[index]);
-				spawn.interval = .333f;
-
-				waveSpawn = new Wave.WaveSpawn
-				{
-					spawn = spawn,
-					spawner = spawner
-				};
-			}
-           
-            wave.waveSpawns.Add(waveSpawn);
-        }
-
+        
         return wave;
     }
 
