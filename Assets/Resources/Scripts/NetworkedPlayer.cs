@@ -12,4 +12,9 @@ public class NetworkedPlayer : NetworkBehaviour {
 		Debug.Log ( string.Format("local player is '{0}'", playerName) );
 		PlayerManager.instance.localNetworkedPlayer = this;
 	}
+
+	[ClientRpc]
+	public void RpcClaimSendSpots() {
+		ColorInitialization.instance.Run ();
+	}
 }

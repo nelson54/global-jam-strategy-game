@@ -16,5 +16,7 @@ public class NetworkLobbyHook : LobbyHook {
 
 		gamePlayer.playerColor = lobbyPlayer.playerColor;
 		gamePlayer.playerName = lobbyPlayer.playerName;
+
+		gamePlayer.RpcClaimSendSpots ();
 	}
 }
