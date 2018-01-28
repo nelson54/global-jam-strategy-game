@@ -33,9 +33,7 @@ public class TowerFactory : MonoBehaviour {
 			}
 		}
 	}
-
-	
-
+		
 	public void Build(int cost, float totalWork) {
 		if (playerManager.money >= cost) {
 			buildingCost = cost;
