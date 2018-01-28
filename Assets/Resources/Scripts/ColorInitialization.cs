@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class ColorInitialization : Singleton<ColorInitialization> {
 
@@ -23,7 +24,7 @@ public class ColorInitialization : Singleton<ColorInitialization> {
 				player.EventPlayerLost += (id) => {
 					DisableArea(index);
 					DisableTowers(player);
-					CheckWinCondition();
+					CheckWinCondition(id);
 
 				};
 
@@ -70,12 +71,12 @@ public class ColorInitialization : Singleton<ColorInitialization> {
 		}
 	}
 
-	private void CheckWinCondition() {
+	private void CheckWinCondition(NetworkInstanceId id) {
 		bool won = true;
 		if(!PlayerManager.instance.localNetworkedPlayer.isAlive) return;
 		var networkedPlayers = FindObjectsOfType<NetworkedPlayer> ();
 		foreach(NetworkedPlayer player in networkedPlayers) {
-			if(PlayerManager.instance.localNetworkedPlayer != player && player.isAlive) {
+			if(PlayerManager.instance.localNetworkedPlayer != player && player.netId != id && player.isAlive) {
 				won = false;
 				break;
 			}

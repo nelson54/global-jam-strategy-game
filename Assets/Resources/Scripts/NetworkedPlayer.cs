@@ -79,13 +79,13 @@ public class NetworkedPlayer : NetworkBehaviour {
 				}
 			}
 			if(playersAlive < 2) {
-				Invoke("ReturnToLobby", 5f);
+				StartCoroutine(ReturnToLobby());
 			}
 		}
 	}
 
-	[Command]
-	void CmdReturnToLobby() {
+	IEnumerator ReturnToLobby() {
+		yield return new WaitForSeconds(5f);
 		((NetworkLobbyManager)NetworkLobbyManager.singleton).SendReturnToLobby();
 	}
 }
