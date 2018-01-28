@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlaceableTowerSpot : MonoBehaviour {
 
 	public bool SnapToCenter;
-
+	public Tower tower;
 	SpriteRenderer SpriteToChange;
 
 	// Colors when highlighted/Unhighlighted
@@ -28,6 +28,10 @@ public class PlaceableTowerSpot : MonoBehaviour {
 		} else {
 			SpriteToChange.color = Unhighlighted;
 		}
+	}
+
+	virtual public bool isFull() {
+		return tower != null;
 	}
 
 	// Called when the player is hovering over this thing while dragging a tower

@@ -13,4 +13,8 @@ public class TowerPen : PlaceableTowerSpot {
 	void Update () {
 		
 	}
+
+	public override bool isFull() {
+		return false;
+	}
 }
