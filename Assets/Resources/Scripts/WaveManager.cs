@@ -6,23 +6,35 @@ public class WaveManager : Singleton<WaveManager> {
 
     public List<GameObject> basicEnemyPrefabs;
     public List<Spawner> spawners;
-    public float waveInterval = 15;
-	public float timeBeforeFirstSpawn = 20;
+    public float waveInterval = 30;
+
+	public float intensityInterval = 10;
+	public float waveIntervalDelta = 5;
+	public float minWaveInterval = 1.5f;
 
     private List<Wave> waves = new List<Wave>();
 
     public void Start()
     {
-        for(var i = 0; i < 5; i++)
+        for(var i = 0; i < 10; i++)
         {
             waves.Add(MakeWave());
         }
+
+		StartCoroutine (IncreaseIntensity ());
         StartCoroutine(SpawnWaves());
     }
 
+	protected IEnumerator IncreaseIntensity() {
+		while (true) {
+			yield return new WaitForSeconds (intensityInterval);
+			waveInterval = Mathf.Max (minWaveInterval, waveInterval - waveIntervalDelta);
+		}
+	}
+
     protected IEnumerator SpawnWaves()
     {
-        yield return new WaitForSeconds(timeBeforeFirstSpawn);
+		yield return new WaitForSeconds(waveInterval);
 
         //TODO add a new wave to the back of the list after we run the first one... goes forever
         for(var i = 0; i < waves.Count; i++)
