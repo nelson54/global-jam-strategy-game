@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -15,6 +15,6 @@ public class NetworkedPlayer : NetworkBehaviour {
 
 	[ClientRpc]
 	public void RpcClaimSendSpots() {
-		ColorInitialization.instance.Run ();
+		//ColorInitialization.instance.Run ();
 	}
 }

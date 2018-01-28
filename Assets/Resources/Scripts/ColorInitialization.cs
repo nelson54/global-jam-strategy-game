@@ -7,8 +7,12 @@ public class ColorInitialization : Singleton<ColorInitialization> {
 	[SerializeField] SpriteRenderer[] PlayerIns;
 	[SerializeField] SpriteRenderer[] PlayerOuts;
 
+	void Start() {
+		Invoke("Run", 1f);
+	}
+
 	// Use this for initialization
-	public void Run () {
+	void Run () {
 		// Set colors for each active player
 		int i = 0;
 		var networkedPlayers = FindObjectsOfType<NetworkedPlayer> ();
