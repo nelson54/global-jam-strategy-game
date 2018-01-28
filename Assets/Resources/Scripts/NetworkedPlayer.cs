@@ -29,15 +29,15 @@ public class NetworkedPlayer : NetworkBehaviour {
 		var players = FindObjectsOfType<NetworkedPlayer> ();
 		foreach (var player in players) {
 			if (player.netId == receiver) {
-				RpcReceiveTower (towerType, netId);
+				RpcReceiveTower (towerType, netId, receiver);
 				break;
 			}
 		}
 	}
 
 	[ClientRpc]
-	public void RpcReceiveTower(TowerType towerType, NetworkInstanceId sender) {
-		if (this == PlayerManager.instance.localNetworkedPlayer) {
+	public void RpcReceiveTower(TowerType towerType, NetworkInstanceId sender, NetworkInstanceId receiver) {
+		if (receiver != PlayerManager.instance.localNetworkedPlayer.netId) {
 			return;
 		}
 
