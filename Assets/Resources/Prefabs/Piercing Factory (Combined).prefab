@@ -221,6 +221,7 @@ MonoBehaviour:
   SnapToCenter: 0
   tower: {fileID: 0}
   CanFire: 0
+  CanPutMultiple: 0
 --- !u!114 &114853279538925064
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -236,7 +237,7 @@ MonoBehaviour:
   progressBar: {fileID: 114987813309668440}
   towerPen: {fileID: 114816318694937954}
   isBuilding: 0
-  buildingCost: 0
+  buildingCost: 120
   totalWork: 1
   currentWork: 1.0007036
   workRate: 0.1
