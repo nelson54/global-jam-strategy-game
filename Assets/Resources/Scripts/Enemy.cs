@@ -14,7 +14,7 @@ public abstract class Enemy : MonoBehaviour {
 	public float slowSpeed = .3f;
 	public float slowTime = 0f;
 	public float slowLength = .6f;
-	public float cashValue = 50;
+	public int cashValue = 50;
 
 	protected virtual void Start() {
 		speed = defaultSpeed;
@@ -63,6 +63,7 @@ public abstract class Enemy : MonoBehaviour {
         }
         if (Health <= 0)
         {
+            PlayerManager.instance.money += cashValue;
             Destroy(gameObject);
         }
     }

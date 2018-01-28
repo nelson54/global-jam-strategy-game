@@ -11,6 +11,7 @@ public class EnemyPathNode : MonoBehaviour {
 		if (nextNodes == null) {
 			nextNodes = new List<EnemyPathNode> ();
 		}
+        
 	}
 	
 	void OnDrawGizmos() {

@@ -55,7 +55,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basicEnemyPrefab: {fileID: 1254217331097502, guid: 451d32388ad1f4ee6bc09b3086d94993,
     type: 2}
-  startNodes:
+  spawners:
   - {fileID: 0}
   - {fileID: 0}
   waveInterval: 15
@@ -72,6 +72,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialHealth: 100
   currentHealth: 100
+  initialMoney: 500
+  currentMoney: 0
+  localNetworkedPlayer: {fileID: 0}
+  healthChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: OnHealthChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: HealthChangedEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  moneyChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: OnMoneyChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: MoneyChangedEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114696860604230498
 MonoBehaviour:
   m_ObjectHideFlags: 1

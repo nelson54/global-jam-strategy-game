@@ -4,45 +4,66 @@ using UnityEngine;
 
 public class WaveManager : Singleton<WaveManager> {
 
-	public GameObject basicEnemyPrefab;
-	public List<EnemyPathNode> startNodes;
-	public List<Wave> waves;
-	public float waveInterval = 15;
+    public List<GameObject> basicEnemyPrefabs;
+    public List<Spawner> spawners;
+    public float waveInterval = 15;
 
-	void Start () {
-		if (waves == null)
-			waves = new List<Wave> ();
+    private List<Wave> waves = new List<Wave>();
 
-		CreateSomeWavesBaby ();
-		StartCoroutine (SpawnWaves ());
-	}
+    public void Start()
+    {
+        for(var i = 0; i < 5; i++)
+        {
+            waves.Add(MakeWave());
+        }
+        StartCoroutine(SpawnWaves());
+    }
 
-	//TODO this is a temporary solution
-	void CreateSomeWavesBaby() {
-		for (int i = 0; i < 10; i++) {
-			var wave = new BasicWave ();
-			wave.enemyPrefab = basicEnemyPrefab;
-			wave.size = 6;
-			wave.interval = .333f;
+    protected IEnumerator SpawnWaves()
+    {
+        //yield return new WaitForSeconds(waveInterval);
 
-			waves.Add (wave);
-		}
-	}
+        //TODO add a new wave to the back of the list after we run the first one... goes forever
+        for(var i = 0; i < waves.Count; i++)
+        {
+            var wave = waves[i];
+            wave.Run();
 
-	IEnumerator SpawnWaves() {
-		for(var i = 0; i < waves.Count; i++) {
-			var wave = waves [i];
-			var startNode = GetRandomStartNode (); //Wave should define a path name...
+            yield return new WaitForSeconds(waveInterval);
+        }
+    }
 
-			yield return StartCoroutine( wave.Spawn(startNode) );
+    protected Wave MakeWave()
+    {
+        var wave = new Wave();
 
-			if (i < waves.Count - 1) 
-				yield return new WaitForSeconds (waveInterval);
-		}
-	}
+        for (int i = 0; i < 5; i++)
+        {
+            var spawner = GetRandomSpawner();
 
-	protected EnemyPathNode GetRandomStartNode() {
-		int index = Random.Range (0, startNodes.Count - 1);
-		return startNodes [index];
-	}
+            var spawn = new BasicSpawn();
+            //Instantiate a random enemy to be in the wave spawn
+            int ChooseRandomEnemyToSpawn = Random.Range(0, basicEnemyPrefabs.Count);
+            GameObject SpawnRandomEnemy = basicEnemyPrefabs[ChooseRandomEnemyToSpawn];
+            spawn.enemyPrefab = SpawnRandomEnemy;
+            spawn.size = 6;
+            spawn.interval = .333f;
+
+            var waveSpawn = new Wave.WaveSpawn
+            {
+                spawn = spawn,
+                spawner = spawner
+            };
+
+            wave.waveSpawns.Add(waveSpawn);
+        }
+
+        return wave;
+    }
+
+    protected Spawner GetRandomSpawner()
+    {
+        int ChooseRandomSpawner = Random.Range(0, spawners.Count);
+        return spawners[ChooseRandomSpawner];
+    }
 }
