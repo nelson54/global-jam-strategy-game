@@ -16,7 +16,7 @@ public class Tower : MonoBehaviour {
 	public GameObject Bullet;
     [SerializeField]
 	public float BulletSpeed;
-    public enum State { FindNextTarget, StartShooting, Disabled }
+    public enum State { FindNextTarget, StartShooting, Disabled, Dead }
     public State SwitchStates;
     //Stores the current enemy being shot at
     public GameObject EnemyBeingShot;
@@ -24,7 +24,11 @@ public class Tower : MonoBehaviour {
 
 	public PlaceableTowerSpot CurrentSpot;
 
-	//private TowerPen towerPen;
+	public void MakeDead() {
+		SwitchStates = State.Dead;
+		GetComponent<SpriteRenderer> ().color = Color.white;
+	}
+
 
     // Use this for initialization
     void Start()
@@ -58,6 +62,9 @@ public class Tower : MonoBehaviour {
     //When the mouse is clicked on the object toggle the dragging bool
     private void OnMouseDown()
     {
+		if (SwitchStates == State.Dead)
+			return;
+
         if(PlayerManager.instance.isDead)
         {
             SwitchStates = State.FindNextTarget;
@@ -124,6 +131,10 @@ public class Tower : MonoBehaviour {
         //While the game object is being dragged set its position to the mouse position
         if (MouseIsDragging)
         {
+			if (SwitchStates == State.Dead) {
+				Destroy (gameObject);
+			}
+
             Vector3 TrueMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 MousePosition = new Vector3(TrueMousePosition.x, TrueMousePosition.y, transform.position.z);
 			// bound the tracking only to valid positions
@@ -178,7 +189,7 @@ public class Tower : MonoBehaviour {
     private void FindNextTarget()
     {
         GameObject EnemyCircleDetector = transform.GetChild(0).gameObject;
-        var EnemyList = Physics2D.OverlapCircleAll(transform.position, EnemyCircleDetector.GetComponent<CircleCollider2D>().radius, 1 << LayerMask.NameToLayer("Enemies"));
+        var EnemyList = Physics2D.OverlapCircleAll(transform.position, EnemyCircleDetector.GetComponent<CircleCollider2D>().radius, LayerMask.GetMask("Enemy"));
         if(EnemyList.Length > 0)
         {
             float CurrentClosestDistanceToNextNode = 10000f;
