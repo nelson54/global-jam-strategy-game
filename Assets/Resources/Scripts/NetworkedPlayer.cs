@@ -9,6 +9,7 @@ public class NetworkedPlayer : NetworkBehaviour {
 	[SyncVar] public Color playerColor;
 
 	public override void OnStartLocalPlayer() {
-		Debug.Log (string.Format ("local player name: {0}", playerName) );
+		Debug.Log ("attaching networked player...");
+		PlayerManager.instance.localNetworkedPlayer = this;
 	}
 }
