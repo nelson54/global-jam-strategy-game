@@ -34,7 +34,7 @@ public class NetworkedPlayer : NetworkBehaviour {
 
 	[ClientRpc]
 	public void RpcReceiveTower(TowerType towerType, NetworkInstanceId sender) {
-		if (this != PlayerManager.instance.localNetworkedPlayer) {
+		if (this == PlayerManager.instance.localNetworkedPlayer) {
 			return;
 		}
 
