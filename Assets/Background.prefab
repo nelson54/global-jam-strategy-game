@@ -290,7 +290,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -315,7 +315,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -365,7 +365,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -401,9 +401,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1665772008708682}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a524ba31c3a5a9948bcec6218a08bee9, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d865ac8e11e0f442b2b012377dc8b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SnapToCenter: 0
   Unhighlighted: {r: 0.25490198, g: 0.45882356, b: 0.86274517, a: 1}
   Highlighted: {r: 0.29545456, g: 0.53181815, b: 1, a: 1}
 --- !u!114 &114451527734021706
@@ -426,9 +427,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1604715343697566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a524ba31c3a5a9948bcec6218a08bee9, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d865ac8e11e0f442b2b012377dc8b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SnapToCenter: 0
   Unhighlighted: {r: 0.86274517, g: 0.25490198, b: 0.25490198, a: 1}
   Highlighted: {r: 1, g: 0.29545456, b: 0.29545456, a: 1}
 --- !u!114 &114483518785899490
@@ -451,11 +453,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1619968320464982}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a524ba31c3a5a9948bcec6218a08bee9, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d865ac8e11e0f442b2b012377dc8b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SnapToCenter: 0
   Unhighlighted: {r: 0.25490198, g: 0.86274517, b: 0.3254902, a: 1}
-  Highlighted: {r: 0, g: 0.86274517, b: 0.10018966, a: 1}
+  Highlighted: {r: 0.134, g: 1, b: 0.23456764, a: 1}
 --- !u!212 &212259633816173406
 SpriteRenderer:
   m_ObjectHideFlags: 1

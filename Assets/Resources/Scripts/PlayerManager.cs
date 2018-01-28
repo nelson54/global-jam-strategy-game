@@ -10,6 +10,8 @@ public class PlayerManager : Singleton<PlayerManager> {
 	public int initialMoney = 500;
 	public int currentMoney;
 
+	public NetworkedPlayer localNetworkedPlayer;
+
 	//public PlayerColor color;  //TODO define this
 
 	public HealthChangedEvent healthChanged;
