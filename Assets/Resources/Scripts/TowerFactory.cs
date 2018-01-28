@@ -27,7 +27,7 @@ public class TowerFactory : MonoBehaviour {
 		if(isBuilding) {
 			WorkTick ();
 		} else if(Input.GetMouseButtonDown(0)) {
-			RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, Tower.TOWER_IGNORE_MASK);
+			RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity);
 			if(hit && hit.transform == transform) {
 				Build (80, 1f);
 			}
@@ -52,7 +52,7 @@ public class TowerFactory : MonoBehaviour {
 		progressBar.Reset ();
 
 		var instance = GameObject.Instantiate (towerPrefab);
-		instance.transform.position = this.transform.position + new Vector3(1f, -.5f, 0f);
+		instance.transform.position = towerPen.transform.position;
 
 		var tower = instance.GetComponent<Tower> ();
 		tower.setTowerPen (towerPen);

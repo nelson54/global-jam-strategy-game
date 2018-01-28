@@ -69,8 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SnapToCenter: 1
-  Unhighlighted: {r: 0.63529414, g: 0.63529414, b: 0.63529414, a: 0.959}
-  Highlighted: {r: 0.934, g: 0.934, b: 0.934, a: 0.972}
+  tower: {fileID: 0}
 --- !u!212 &212317350791582852
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -104,7 +103,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.634, g: 0.634, b: 0.634, a: 0.616}
   m_FlipX: 0
