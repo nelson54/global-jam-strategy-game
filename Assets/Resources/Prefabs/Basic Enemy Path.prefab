@@ -482,7 +482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc80c87c06e0d647bf6b3fd1d796542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnInterval: 1
+  spawnInterval: 3
   SpawnWavesIsRunning: 0
 --- !u!114 &114459890445421994
 MonoBehaviour:
@@ -495,7 +495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc80c87c06e0d647bf6b3fd1d796542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnInterval: 1
+  spawnInterval: 3
   SpawnWavesIsRunning: 0
 --- !u!114 &114546960631815640
 MonoBehaviour:

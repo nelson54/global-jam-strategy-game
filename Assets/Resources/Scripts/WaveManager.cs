@@ -7,6 +7,7 @@ public class WaveManager : Singleton<WaveManager> {
     public List<GameObject> basicEnemyPrefabs;
     public List<Spawner> spawners;
     public float waveInterval = 15;
+	public float timeBeforeFirstSpawn = 20;
 
     private List<Wave> waves = new List<Wave>();
 
@@ -21,7 +22,7 @@ public class WaveManager : Singleton<WaveManager> {
 
     protected IEnumerator SpawnWaves()
     {
-        //yield return new WaitForSeconds(waveInterval);
+        yield return new WaitForSeconds(timeBeforeFirstSpawn);
 
         //TODO add a new wave to the back of the list after we run the first one... goes forever
         for(var i = 0; i < waves.Count; i++)
