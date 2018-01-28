@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class WaveManager : Singleton<WaveManager> {
 
@@ -21,19 +22,18 @@ public class WaveManager : Singleton<WaveManager> {
 		float intensity = 1;
 		float intensityDelta = 1 / 5f;
 
-        for(var i = 0; i < 60; i++)
+        for(int i = 0; i < 60; i++)
         {
 			var wave = new Wave();
 
-			Wave.WaveSpawn waveSpawn = null;
-			if (i % 10 == 0) {
+			if ((i + 1) % 10 == 0) {
 				var spawner = GetRandomSpawner ();
 
 				var spawn = new BossSpawn ();
 				spawn.enemyPrefab = bossPrefab;
 				spawn.hp = 200 * intensityInterval;
 
-				waveSpawn = new Wave.WaveSpawn {
+				var waveSpawn = new Wave.WaveSpawn {
 					spawn = spawn,
 					spawner = spawner
 				};
@@ -41,19 +41,19 @@ public class WaveManager : Singleton<WaveManager> {
 				wave.waveSpawns.Add(waveSpawn);
 			} 
 			else {
-				int numSpawns = Math.Min (5, intensity * 2); //this can be changed
+				int numSpawns = (int)Math.Min (5, intensity * 2); //this can be changed
 				for (int j = 0; j < numSpawns; j++) {
 					var spawner = GetRandomSpawner ();
 
 					var spawn = new BasicSpawn ();
 
-					int index = Random.Range (0, basicEnemyPrefabs.Count);
+					int index = UnityEngine.Random.Range (0, basicEnemyPrefabs.Count);
 
 					spawn.enemyPrefab = basicEnemyPrefabs [index];
-					spawn.size = (int)Mathf.Floor (waveInterval * defaultSpawnSizes [index]);
+					spawn.size = (int)Mathf.Floor (intensity * defaultSpawnSizes [index]);
 					spawn.interval = .333f;
 
-					waveSpawn = new Wave.WaveSpawn {
+					var waveSpawn = new Wave.WaveSpawn {
 						spawn = spawn,
 						spawner = spawner
 					};
@@ -63,6 +63,7 @@ public class WaveManager : Singleton<WaveManager> {
 			}
 
             waves.Add(wave);
+			intensity += intensityDelta;
         }
 
 		StartCoroutine (IncreaseIntensity ());
@@ -90,15 +91,9 @@ public class WaveManager : Singleton<WaveManager> {
         }
     }
 
-	protected Wave MakeWave(float intensity)
-    {
-        
-        return wave;
-    }
-
     protected Spawner GetRandomSpawner()
     {
-        int ChooseRandomSpawner = Random.Range(0, spawners.Count);
+		int ChooseRandomSpawner = UnityEngine.Random.Range(0, spawners.Count);
         return spawners[ChooseRandomSpawner];
     }
 }

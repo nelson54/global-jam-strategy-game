@@ -59,13 +59,14 @@ MonoBehaviour:
   - {fileID: 1254217331097502, guid: 451d32388ad1f4ee6bc09b3086d94993, type: 2}
   - {fileID: 1304493427946286, guid: ea1a138f63a06704cbfdb125b0ad92de, type: 2}
   - {fileID: 1688024556824726, guid: e32c7ca57a31c63459c95ab74cb0c41d, type: 2}
-  - {fileID: 1997132098144986, guid: b8663341916898644baea96c4724e181, type: 2}
+  bossPrefab: {fileID: 1997132098144986, guid: b8663341916898644baea96c4724e181, type: 2}
+  defaultSpawnSizes: 040000000200000006000000
   spawners:
   - {fileID: 0}
   - {fileID: 0}
   waveInterval: 30
   intensityInterval: 20
-  waveIntervalDelta: 5
+  waveIntervalDelta: 1
   minWaveInterval: 1.5
 --- !u!114 &114683152005237978
 MonoBehaviour:
