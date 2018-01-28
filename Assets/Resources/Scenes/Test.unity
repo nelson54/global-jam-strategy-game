@@ -1569,6 +1569,7 @@ GameObject:
   m_Component:
   - component: {fileID: 738691238}
   - component: {fileID: 738691237}
+  - component: {fileID: 738691239}
   m_Layer: 0
   m_Name: temp base
   m_TagString: Untagged
@@ -1633,6 +1634,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &738691239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 738691236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aaf95f26c7cb22498080f131e638947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &740885978 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4014649573416862, guid: ec4c6f583d3b4ef4c9a1b7f318bda6e7,
@@ -1852,6 +1864,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114683152005237978, guid: 9ac1e6caaae824362994fc340cbf8eeb,
+        type: 2}
+      propertyPath: healthChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4373813180693422, guid: 9ac1e6caaae824362994fc340cbf8eeb, type: 2}
       propertyPath: m_LocalPosition.x
       value: -3.7120476
@@ -1921,6 +1938,31 @@ Prefab:
       value: 
       objectReference: {fileID: 1341213572596698, guid: d273b2db91c66904db6334cdc2b5bdc1,
         type: 2}
+    - target: {fileID: 114683152005237978, guid: 9ac1e6caaae824362994fc340cbf8eeb,
+        type: 2}
+      propertyPath: healthChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114683152005237978, guid: 9ac1e6caaae824362994fc340cbf8eeb,
+        type: 2}
+      propertyPath: healthChanged.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114683152005237978, guid: 9ac1e6caaae824362994fc340cbf8eeb,
+        type: 2}
+      propertyPath: healthChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 738691239}
+    - target: {fileID: 114683152005237978, guid: 9ac1e6caaae824362994fc340cbf8eeb,
+        type: 2}
+      propertyPath: healthChanged.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnPlayerLoseHealth
+      objectReference: {fileID: 0}
+    - target: {fileID: 114683152005237978, guid: 9ac1e6caaae824362994fc340cbf8eeb,
+        type: 2}
+      propertyPath: healthChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ac1e6caaae824362994fc340cbf8eeb, type: 2}
   m_IsPrefabParent: 0
