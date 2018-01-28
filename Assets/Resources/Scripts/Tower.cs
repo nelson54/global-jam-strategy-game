@@ -19,6 +19,8 @@ public class Tower : MonoBehaviour {
     public GameObject EnemyBeingShot;
     public List<GameObject> DetectedEnemies; 
 
+	private PlaceableTowerSpot spot;
+
 	private TowerPen towerPen;
 
 
@@ -53,6 +55,7 @@ public class Tower : MonoBehaviour {
     {
 		// Start dragging if the player isn't dragging
 		if(PlayerManager.instance.towerBeingDragged == null) {
+			
 			MouseIsDragging = true;
             //Disable the tower once you're dragging it
             SwitchStates = State.Disabled;
@@ -77,14 +80,10 @@ public class Tower : MonoBehaviour {
 					return;
 				}
 
-				PlaceableTowerSpot spot = hit.transform.GetComponent<PlaceableTowerSpot>();
-				if(spot != null) {
+				PlaceableTowerSpot placeableSpot = hit.transform.GetComponent<PlaceableTowerSpot>();
+				if(placeableSpot != null) {
 					// Send the object to the other player
-					//Debug.Log("sending to player " + spot.Player);
-
-					// snap to the center of that object
-					if(spot.SnapToCenter)
-						transform.position = new Vector3(spot.transform.position.x, spot.transform.position.y, transform.position.z);
+					setPlaceableTowerSpot (placeableSpot);
 
 					// Stop dragging
 					MouseIsDragging = false;
@@ -94,8 +93,9 @@ public class Tower : MonoBehaviour {
 				}
 			}
 
-			if(towerPen != null)
-				transform.position = new Vector3(towerPen.transform.position.x, towerPen.transform.position.y, transform.position.z);
+			if (spot) {
+				setPlaceableTowerSpot (spot);
+			}
 
 			// Stop dragging
 			MouseIsDragging = false;
@@ -145,10 +145,13 @@ public class Tower : MonoBehaviour {
             //Instantiate an object and set their velocity to the calculated value of where the enemy they're shooting will be
             GameObject InstantiatedBullet;
             InstantiatedBullet = Instantiate(Bullet, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0f), transform.rotation);
+			Bullet bullet = InstantiatedBullet.GetComponent<Bullet> ();
 			Rigidbody2D body = EnemyBeingShot.GetComponent<Rigidbody2D> ();
 			//Draw a vector from the tower to the enemy
-			Vector2 VectorToEnemy = (EnemyBeingShot.transform.position - this.transform.position);
-			VectorToEnemy = VectorToEnemy + (body.velocity * Time.deltaTime);
+			Vector2 Position = EnemyBeingShot.transform.position;
+			Vector3 FuturePosition = new Vector2 (Position.x, Position.y) + body.velocity * Time.deltaTime;
+			Vector2 VectorToEnemy = FuturePosition - transform.position;
+
             //Normalize the vector from the tower to the enemy and apply the bullet speed to it
             InstantiatedBullet.GetComponent<Rigidbody2D>().velocity = VectorToEnemy.normalized * BulletSpeed;
             Timer = 0;
@@ -172,6 +175,16 @@ public class Tower : MonoBehaviour {
             }
         }
     }
+
+	public void setPlaceableTowerSpot(PlaceableTowerSpot spot) {
+		if (spot == null || spot.isFull()) {
+			spot = towerPen;
+		}
+
+		transform.position = new Vector3(spot.transform.position.x, spot.transform.position.y, spot.transform.position.z);
+		spot.tower = this;
+		this.spot = spot;
+	}
 
     private void TowerIsDisabled()
     {
