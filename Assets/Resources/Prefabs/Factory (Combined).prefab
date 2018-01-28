@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb8f8f14e180444f89a85f5c9f0e2433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SnapToCenter: 0
+  SnapToCenter: 1
   tower: {fileID: 0}
   CanFire: 0
   CanPutMultiple: 0

@@ -13,6 +13,7 @@ public class FollowPathEnemy : Enemy {
 
 	protected override void Start() {
 		body = GetComponent<Rigidbody2D> ();
+        speed = defaultSpeed;
 	}
 
 	//TODO need to change this to be a more traditional parametric path with t values and reckoning

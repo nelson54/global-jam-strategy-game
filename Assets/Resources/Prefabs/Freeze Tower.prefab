@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4106016026433320}
   - component: {fileID: 212766709588182406}
   - component: {fileID: 61034937961306764}
-  - component: {fileID: 114311121179996332}
+  - component: {fileID: 114793672149855560}
   m_Layer: 11
   m_Name: Freeze Tower
   m_TagString: Untagged
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 052dcc9834c7feb45a1496af197e82e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114311121179996332
+--- !u!114 &114793672149855560
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -132,17 +132,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1361966581286410}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec6c6479a2d0b0348983d00ccfd71205, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ebab81ab710e43eba83642e1b168222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MouseIsDragging: 0
   Timer: 0
-  FireRate: 0.3
-  Bullet: {fileID: 1193277543246602, guid: 4d22dd99e7e95884d81a3a407e52edfa, type: 2}
-  BulletSpeed: 4
+  FireRate: 0
+  Bullet: {fileID: 0}
+  BulletSpeed: 0
   SwitchStates: 0
   EnemyBeingShot: {fileID: 0}
-  Type: 0
+  Type: 2
   CurrentSpot: {fileID: 0}
 --- !u!212 &212766709588182406
 SpriteRenderer:
