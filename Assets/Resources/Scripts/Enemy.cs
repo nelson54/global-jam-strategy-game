@@ -32,7 +32,7 @@ public abstract class Enemy : MonoBehaviour {
 		}
 	}
 
-	protected void startSlow() {
+	public void startSlow() {
 		if (!slowed) {
 			speed = slowSpeed;
 		}

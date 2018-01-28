@@ -9,10 +9,13 @@ public class Tower : MonoBehaviour {
 
     //The bool that detects if this specific tower is being dragged
     public bool MouseIsDragging;
-    private float Timer = 0;
-    [SerializeField] float FireRate;
-    [SerializeField] GameObject Bullet;
-    [SerializeField] float BulletSpeed;
+    public float Timer = 0;
+	[SerializeField]
+	public float FireRate;
+    [SerializeField]
+	public GameObject Bullet;
+    [SerializeField]
+	public float BulletSpeed;
     public enum State { FindNextTarget, StartShooting, Disabled }
     public State SwitchStates;
     //Stores the current enemy being shot at
@@ -148,7 +151,7 @@ public class Tower : MonoBehaviour {
         }
     }
 
-    private void StartShooting()
+	public virtual void StartShooting()
     {
         Timer += Time.deltaTime;
         if(Timer > FireRate)
