@@ -238,8 +238,8 @@ MonoBehaviour:
   towerPen: {fileID: 114816318694937954}
   isBuilding: 0
   buildingCost: 150
-  totalWork: 1
-  currentWork: 1.0007036
+  totalWork: 15
+  currentWork: 0
   workRate: 0.1
 --- !u!114 &114937450233558878
 MonoBehaviour:
