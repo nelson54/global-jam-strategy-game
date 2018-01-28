@@ -40,7 +40,8 @@ public class FollowPathEnemy : Enemy {
 	//TODO this is a terrible name
 	protected EnemyPathNode GetNextNode() {
 		if (nextNode != null && nextNode.nextNodes.Count > 0) {
-			return nextNode.nextNodes [0];
+            int chooseNextNode = Random.Range(0, nextNode.nextNodes.Count);
+			return nextNode.nextNodes [chooseNextNode];
 		}
 
 		return null;
