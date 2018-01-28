@@ -72,7 +72,7 @@ public class Tower : MonoBehaviour {
 					// Send the object to the other player
 					PlayerManager.instance.localNetworkedPlayer.CmdSendTower (
 						TowerType.Normal, 
-						platform.networkedPlayer
+						platform.networkedPlayer.netId
 					);
 
 					PlayerManager.instance.towerBeingDragged = null;
