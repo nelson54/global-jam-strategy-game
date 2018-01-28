@@ -12,7 +12,6 @@ public class TowerAoe : Tower {
         if(Timer > FireRate)
         {
 			PartyHard ();
-            Timer = 0;
         }
     }
 
@@ -33,6 +32,7 @@ public class TowerAoe : Tower {
                 {
 					FollowPathEnemy enemy = EnemyList [i].GetComponent<FollowPathEnemy> ();
 					enemy.LoseHealth(bulletDamage, BulletTyper.Normal);
+					Timer = 0;
                 }
             }
             SwitchStates = State.StartShooting;
