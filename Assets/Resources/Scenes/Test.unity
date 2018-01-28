@@ -2065,11 +2065,11 @@ Prefab:
         type: 2}
       propertyPath: healthChanged.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 544646128}
+      objectReference: {fileID: 544646131}
     - target: {fileID: 114683152005237978, guid: 9ac1e6caaae824362994fc340cbf8eeb,
         type: 2}
       propertyPath: healthChanged.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: 
+      value: LoseGame
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ac1e6caaae824362994fc340cbf8eeb, type: 2}
