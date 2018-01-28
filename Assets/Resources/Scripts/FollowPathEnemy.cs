@@ -7,6 +7,7 @@ public class FollowPathEnemy : Enemy {
 
 	public EnemyPathNode nextNode;
 	public float epsilon = 0.1f;
+    private float DistanceToNextNode;
 
 	private Rigidbody2D body;
 
@@ -51,4 +52,10 @@ public class FollowPathEnemy : Enemy {
 		EnemyPathing.instance.reachedEnd.Invoke (gameObject);
 		Destroy (gameObject); //TODO PERF - maybe a pool eventually?  nah...
 	}
+
+    public float DistanceToNextNodeCalculation()
+    {
+        DistanceToNextNode = Vector2.Distance(transform.position, nextNode.transform.position);
+        return DistanceToNextNode;
+    }
 }
