@@ -19,8 +19,9 @@ public class ColorInitialization : Singleton<ColorInitialization> {
 
 		foreach(NetworkedPlayer player in networkedPlayers) {
 			if(PlayerManager.instance.localNetworkedPlayer != player) {
+				var index = i;
 				player.EventPlayerLost += (id) => {
-					DisableArea(i);
+					DisableArea(index);
 				};
 
 				PlayerIns[i].color = player.playerColor;
