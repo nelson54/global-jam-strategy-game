@@ -22,7 +22,8 @@ public class ColorInitialization : MonoBehaviour {
 		for(; i < PlayerIns.Length; i++) {
 			PlayerIns[i].color = Color.grey;
 			PlayerOuts[i].color = Color.grey;
-			//PlayerIns[i].GetComponent<PlaceableTowerSpot>().enabled = false;
+			PlayerIns[i].GetComponent<TowerSendPlatform>().enabled = false;
+			PlayerIns[i].GetComponent<PlaceableTowerSpot>().enabled = false;
 		}
 	}
 	

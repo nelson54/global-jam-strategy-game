@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4168755945930302}
   - component: {fileID: 212420689421696278}
+  - component: {fileID: 114442546284125794}
   m_Layer: 0
   m_Name: tower pen
   m_TagString: Untagged
@@ -40,6 +41,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114442546284125794
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1233554989502794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8f8f14e180444f89a85f5c9f0e2433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SnapToCenter: 0
+  tower: {fileID: 0}
 --- !u!212 &212420689421696278
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -69,7 +69,7 @@ public class Tower : MonoBehaviour {
 			if (hit) {
 				// Placing on one of the sending platformers
 				TowerSendPlatform platform = hit.transform.GetComponent<TowerSendPlatform>();
-				if(platform != null) {
+				if(platform != null && platform.enabled) {
 					// Send the object to the other player
 					Debug.Log("sending to player " + platform.Player);
 
