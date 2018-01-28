@@ -137,7 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MouseIsDragging: 0
   FireRate: 0.3
-  Bullet: {fileID: 1193277543246602, guid: 4d22dd99e7e95884d81a3a407e52edfa, type: 2}
+  Bullet: {fileID: 1288583630864810, guid: 1047b0981e5f85c40acc239621ad4dd5, type: 2}
   BulletSpeed: 4
   SwitchStates: 0
   EnemyBeingShot: {fileID: 0}
@@ -176,7 +176,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ed48e846272a56a43a5c8118b2b61d3b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 35c0b3e41bb49f24094fa30155442a5f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
