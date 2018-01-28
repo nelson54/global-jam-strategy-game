@@ -31,7 +31,7 @@ public class WaveManager : Singleton<WaveManager> {
 
 				var spawn = new BossSpawn ();
 				spawn.enemyPrefab = bossPrefab;
-				spawn.hp = 200 * intensityInterval;
+				spawn.hp = 200 * intensity;
 
 				var waveSpawn = new Wave.WaveSpawn {
 					spawn = spawn,

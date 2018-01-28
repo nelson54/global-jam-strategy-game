@@ -15,7 +15,7 @@ public class BossSpawn : Spawn {
         instance.transform.position = start.transform.position;
         var follow = instance.GetComponent<FollowPathEnemy>();
         follow.nextNode = start;
-        yield return new WaitForSeconds(interval);
+		yield return null;
         
     }
 }

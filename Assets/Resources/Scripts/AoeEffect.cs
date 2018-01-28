@@ -6,7 +6,7 @@ public class AoeEffect : MonoBehaviour {
 	float reduceScalePerTick = .01f;
 	// Use this for initialization
 	void Start () {
-		
+		transform.localScale = new Vector3 (1.5f, 1.5f, 0);
 	}
 	
 	// Update is called once per frame

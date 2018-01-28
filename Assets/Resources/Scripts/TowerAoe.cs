@@ -5,13 +5,13 @@ using UnityEngine;
 public class TowerAoe : Tower {
 	public float missRate = .2f;
 	public float bulletDamage = 5f;
+	public GameObject effect;
 	public override void StartShooting()
     {
         Timer += Time.deltaTime;
         if(Timer > FireRate)
         {
 			PartyHard ();
-            Timer = 0;
         }
     }
 
@@ -22,6 +22,9 @@ public class TowerAoe : Tower {
         var EnemyList = Physics2D.OverlapCircleAll(transform.position, EnemyCircleDetector.GetComponent<CircleCollider2D>().radius, 1 << LayerMask.NameToLayer("Enemy"));
         if(EnemyList.Length > 0)
         {
+			GameObject instantiatedEffect = Instantiate<GameObject> (effect);
+			instantiatedEffect.transform.position = transform.position;
+
 			for (int i = 0; i < EnemyList.Length * (1f-missRate); i++)
             {
                 //If the enemy found in the list is not null start shooting at that
@@ -29,6 +32,7 @@ public class TowerAoe : Tower {
                 {
 					FollowPathEnemy enemy = EnemyList [i].GetComponent<FollowPathEnemy> ();
 					enemy.LoseHealth(bulletDamage, BulletTyper.Normal);
+					Timer = 0;
                 }
             }
             SwitchStates = State.StartShooting;
