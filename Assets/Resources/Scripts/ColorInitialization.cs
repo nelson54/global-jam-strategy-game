@@ -22,6 +22,7 @@ public class ColorInitialization : Singleton<ColorInitialization> {
 				var index = i;
 				player.EventPlayerLost += (id) => {
 					DisableArea(index);
+					DisableTowers(player);
 				};
 
 				player.receiveArea = PlayerOuts [i].gameObject;
@@ -50,5 +51,15 @@ public class ColorInitialization : Singleton<ColorInitialization> {
 		PlayerOuts[i].color = Color.grey;
 		PlayerIns[i].GetComponent<TowerSendPlatform>().enabled = false;
 		PlayerIns[i].GetComponent<PlaceableTowerSpot>().enabled = false;
+	}
+
+	private void DisableTowers(NetworkedPlayer player) {
+		var towers = FindObjectsOfType<Tower> ();
+		foreach (var tower in towers) {
+			var renderer = GetComponent<SpriteRenderer> ();
+			if (renderer.color == player.playerColor) {
+				tower.MakeDead ();
+			}
+		}
 	}
 }
