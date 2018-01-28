@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114696860604230498}
   - component: {fileID: 114683152005237978}
   - component: {fileID: 114861566534268020}
+  - component: {fileID: 114868997647428144}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -92,6 +93,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: OnPlayerLoseHealth
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: HealthChangedEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   moneyChanged:
@@ -137,3 +149,20 @@ MonoBehaviour:
     prefab: {fileID: 1361966581286410, guid: 9136df9da2e0f37459100c73b094377b, type: 2}
   - type: 1
     prefab: {fileID: 1341213572596698, guid: d273b2db91c66904db6334cdc2b5bdc1, type: 2}
+--- !u!114 &114868997647428144
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1082352118507920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31168cd5bfa8df54caddbab33859c1a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Factory1: {fileID: 0}
+  Factory2: {fileID: 0}
+  Factory3: {fileID: 0}
+  FactoryTypes:
+  - {fileID: 1385793004025254, guid: 9377261848dbf514ab185ee60f4f1ca2, type: 2}
+  - {fileID: 1739410144412308, guid: 42a12e62b865c9a4ca9adfff467e189d, type: 2}

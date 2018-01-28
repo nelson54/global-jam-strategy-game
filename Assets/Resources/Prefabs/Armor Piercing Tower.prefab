@@ -53,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1341213572596698}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.4, y: -2.01, z: -2}
+  m_LocalPosition: {x: 6.47, y: -2.53, z: 0.025602741}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4898644142799654}
@@ -130,6 +130,7 @@ MonoBehaviour:
   BulletSpeed: 4
   SwitchStates: 0
   EnemyBeingShot: {fileID: 0}
+  Type: 0
   CurrentSpot: {fileID: 0}
 --- !u!114 &114952160182070074
 MonoBehaviour:
