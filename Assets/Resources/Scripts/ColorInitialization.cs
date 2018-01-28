@@ -2,16 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColorInitialization : MonoBehaviour {
+public class ColorInitialization : Singleton<ColorInitialization> {
 
 	[SerializeField] SpriteRenderer[] PlayerIns;
 	[SerializeField] SpriteRenderer[] PlayerOuts;
 
+	void Start() {
+		Invoke("Run", 1f);
+	}
+
 	// Use this for initialization
-	void Awake () {
+	void Run () {
 		// Set colors for each active player
 		int i = 0;
-		foreach(NetworkedPlayer player in FindObjectsOfType<NetworkedPlayer>()) {
+		var networkedPlayers = FindObjectsOfType<NetworkedPlayer> ();
+
+		foreach(NetworkedPlayer player in networkedPlayers) {
 			if(PlayerManager.instance.localNetworkedPlayer != player) {
 				PlayerIns[i].color = player.playerColor;
 				PlayerOuts[i].color = player.playerColor;
@@ -25,10 +31,5 @@ public class ColorInitialization : MonoBehaviour {
 			PlayerIns[i].GetComponent<TowerSendPlatform>().enabled = false;
 			PlayerIns[i].GetComponent<PlaceableTowerSpot>().enabled = false;
 		}
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }
