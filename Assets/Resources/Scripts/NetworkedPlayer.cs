@@ -5,11 +5,9 @@ using UnityEngine.Networking;
 
 public class NetworkedPlayer : NetworkBehaviour {
 
-	public delegate void ReceivedTowerDelegate(TowerType TowerType, NetworkInstanceId sender);
 	public delegate void PlayerLostDelegate(NetworkInstanceId player); //TODO this should be a shared object?
 	public delegate void PlayerHealthChangedDelegate(float curr, float total, NetworkInstanceId player);
 
-	[SyncEvent] public event ReceivedTowerDelegate EventReceivedTower;
 	[SyncEvent] public event PlayerLostDelegate EventPlayerLost;
 	[SyncEvent] public event PlayerHealthChangedDelegate EventPlayerHealthChanged;
 
@@ -20,18 +18,28 @@ public class NetworkedPlayer : NetworkBehaviour {
 	public override void OnStartLocalPlayer() {
 		Debug.Log ( string.Format("local player is '{0}'", playerName) );
 		PlayerManager.instance.localNetworkedPlayer = this;
-		EventReceivedTower += ReceiveTower;
 	}
 
 	[Command]
 	public void CmdSendTower(TowerType towerType, NetworkInstanceId receiver) {
+		Debug.Log( string.Format("{0} sending to {1}", netId, receiver) );
 		var players = FindObjectsOfType<NetworkedPlayer> ();
 		foreach (var player in players) {
 			if (player.netId == receiver) {
-				EventReceivedTower (towerType, netId);
+				RpcReceiveTower (towerType, netId);
 				break;
 			}
 		}
+	}
+
+	[ClientRpc]
+	public void RpcReceiveTower(TowerType towerType, NetworkInstanceId sender) {
+		if (this != PlayerManager.instance.localNetworkedPlayer) {
+			return;
+		}
+
+		Debug.Log (string.Format ("received a tower from {0}", sender));
+		//TODO spawn tower
 	}
 
 	[Command]
@@ -41,9 +49,5 @@ public class NetworkedPlayer : NetworkBehaviour {
 			isAlive = false;
 			EventPlayerLost (netId);
 		}
-	}
-
-	protected void ReceiveTower(TowerType towerType, NetworkInstanceId sender) {
-		Debug.Log (string.Format ("received a tower from {0}", sender.Value) );
 	}
 }
