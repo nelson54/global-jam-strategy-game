@@ -239,7 +239,7 @@ MonoBehaviour:
   progressBar: {fileID: 114729337941700530}
   towerPen: {fileID: 114897528719402418}
   isBuilding: 0
-  buildingCost: 500
+  buildingCost: 300
   totalWork: 1
   currentWork: 1.0007036
   workRate: 0.1

@@ -137,7 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MouseIsDragging: 0
   Timer: 0
-  FireRate: 0
+  FireRate: 0.5
   Bullet: {fileID: 0}
   BulletSpeed: 0
   SwitchStates: 0
