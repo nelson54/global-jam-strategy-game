@@ -56,6 +56,9 @@ public class NetworkedPlayer : NetworkBehaviour {
 				break;
 			}
 		}
+
+		var tower = TowerPlacer.instance.PlaceATower (towerType, color);
+		tower.transform.position = new Vector3 (x, y, tower.transform.position.z);
 	}
 
 	[Command]
