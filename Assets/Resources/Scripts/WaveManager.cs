@@ -5,6 +5,8 @@ using UnityEngine;
 public class WaveManager : Singleton<WaveManager> {
 
     public List<GameObject> basicEnemyPrefabs;
+	public GameObject bossPrefab;
+	public List<int> defaultSpawnSizes;
     public List<Spawner> spawners;
     public float waveInterval = 30;
 
@@ -46,28 +48,42 @@ public class WaveManager : Singleton<WaveManager> {
         }
     }
 
-    protected Wave MakeWave()
+	protected Wave MakeWave(float intensity)
     {
         var wave = new Wave();
 
-        for (int i = 0; i < 5; i++)
+		int numSpawns = Math.Min (5, intensity * 2); //this can be changed
+        for (int i = 0; i < numSpawns; i++)
         {
             var spawner = GetRandomSpawner();
 
-            var spawn = new BasicSpawn();
-            //Instantiate a random enemy to be in the wave spawn
-            int ChooseRandomEnemyToSpawn = Random.Range(0, basicEnemyPrefabs.Count);
-            GameObject SpawnRandomEnemy = basicEnemyPrefabs[ChooseRandomEnemyToSpawn];
-            spawn.enemyPrefab = SpawnRandomEnemy;
-            spawn.size = 6;
-            spawn.interval = .333f;
+			Wave.WaveSpawn waveSpawn = null;
+			if (i % 10 == 0) {
+				var spawn = new BossSpawn ();
+				spawn.enemyPrefab = bossPrefab;
+				spawn.hp = 200 * intensityInterval;
 
-            var waveSpawn = new Wave.WaveSpawn
-            {
-                spawn = spawn,
-                spawner = spawner
-            };
+				waveSpawn = new Wave.WaveSpawn
+				{
+					spawn = spawn,
+					spawner = spawner
+				};
+			} else {
+				var spawn = new BasicSpawn();
 
+				int index = Random.Range(0, basicEnemyPrefabs.Count);
+		
+				spawn.enemyPrefab = basicEnemyPrefabs[index];
+				spawn.size = (int)Mathf.Floor(waveInterval * defaultSpawnSizes[index]);
+				spawn.interval = .333f;
+
+				waveSpawn = new Wave.WaveSpawn
+				{
+					spawn = spawn,
+					spawner = spawner
+				};
+			}
+           
             wave.waveSpawns.Add(waveSpawn);
         }
 
