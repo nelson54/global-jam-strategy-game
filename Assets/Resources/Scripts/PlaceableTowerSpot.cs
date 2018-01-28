@@ -9,8 +9,8 @@ public class PlaceableTowerSpot : MonoBehaviour {
 	SpriteRenderer SpriteToChange;
 
 	// Colors when highlighted/Unhighlighted
-	Color Unhighlighted;
-	Color Highlighted;
+	[System.NonSerialized] public Color Unhighlighted;
+	[System.NonSerialized] public Color Highlighted;
 
 	// Use this for initialization
 	void Start () {

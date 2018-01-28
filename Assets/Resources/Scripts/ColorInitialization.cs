@@ -20,6 +20,8 @@ public class ColorInitialization : Singleton<ColorInitialization> {
 		foreach(NetworkedPlayer player in networkedPlayers) {
 			if(PlayerManager.instance.localNetworkedPlayer != player) {
 				PlayerIns[i].color = player.playerColor;
+				PlayerIns[i].GetComponent<PlaceableTowerSpot>().Unhighlighted = player.playerColor;
+				PlayerIns[i].GetComponent<PlaceableTowerSpot>().Highlighted = player.playerColor * 1.3f;
 				PlayerOuts[i].color = player.playerColor;
 				i++;
 			}
