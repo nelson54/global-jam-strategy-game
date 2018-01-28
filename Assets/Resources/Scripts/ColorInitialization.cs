@@ -52,9 +52,10 @@ public class ColorInitialization : Singleton<ColorInitialization> {
 
 	private void DisableArea(int i) {
 		PlayerIns[i].color = Color.grey;
-		PlayerOuts[i].color = Color.grey;
 		PlayerIns[i].GetComponent<TowerSendPlatform>().enabled = false;
 		PlayerIns[i].GetComponent<PlaceableTowerSpot>().enabled = false;
+		PlayerOuts[i].color = Color.grey;
+		PlayerOuts[i].GetComponent<PlaceableTowerSpot>().enabled = false;
 	}
 
 	private void DisableTowers(NetworkedPlayer player) {
