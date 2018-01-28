@@ -108,7 +108,7 @@ MonoBehaviour:
   slowSpeed: 0.3
   slowTime: 0
   slowLength: 0.6
-  cashValue: 3
+  cashValue: 20
   nextNode: {fileID: 0}
   epsilon: 0.1
 --- !u!212 &212339305311871414
