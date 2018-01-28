@@ -24,6 +24,7 @@ public class ColorInitialization : Singleton<ColorInitialization> {
 					DisableArea(index);
 					DisableTowers(player);
 					CheckWinCondition();
+
 				};
 
 				player.receiveArea = PlayerOuts [i].gameObject;

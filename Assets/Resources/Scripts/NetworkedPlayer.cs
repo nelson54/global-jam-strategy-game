@@ -71,6 +71,21 @@ public class NetworkedPlayer : NetworkBehaviour {
 		if (amount <= 0) {
 			isAlive = false;
 			EventPlayerLost (netId);
+			int playersAlive = 0;
+			var networkedPlayers = FindObjectsOfType<NetworkedPlayer> ();
+			foreach(NetworkedPlayer player in networkedPlayers) {
+				if(player.isAlive) {
+					++playersAlive;
+				}
+			}
+			if(playersAlive < 2) {
+				Invoke("ReturnToLobby", 5f);
+			}
 		}
+	}
+
+	[Command]
+	void CmdReturnToLobby() {
+		((NetworkLobbyManager)NetworkLobbyManager.singleton).SendReturnToLobby();
 	}
 }
