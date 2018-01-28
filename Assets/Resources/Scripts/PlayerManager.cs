@@ -85,8 +85,6 @@ public class PlayerManager : Singleton<PlayerManager> {
 		if(localNetworkedPlayer != null)
 			localNetworkedPlayer.CmdUpdateHealth(currentHealth, initialHealth);
 
-		//Debug.Log( string.Format("Player's base Has {0} hp", currentHealth) ); 
-
 	}
 
 	void OnPlayerHasLost() {
@@ -95,6 +93,5 @@ public class PlayerManager : Singleton<PlayerManager> {
 
 	void OnMoneyChanged() {
 		moneyChanged.Invoke (currentMoney);
-		Debug.Log (string.Format ("Player's money is ${0}", currentMoney));
 	}
 }
