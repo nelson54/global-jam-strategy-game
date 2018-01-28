@@ -57,8 +57,12 @@ public class NetworkedPlayer : NetworkBehaviour {
 			}
 		}
 
+		var towerSpot = receiveArea.GetComponent<PlaceableTowerSpot> ();
+
 		var tower = TowerPlacer.instance.PlaceATower (towerType, color);
 		tower.transform.position = new Vector3 (x, y, tower.transform.position.z);
+
+		tower.GetComponent<Tower> ().CurrentSpot = towerSpot; //TODO help this
 	}
 
 	[Command]
