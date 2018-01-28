@@ -33,6 +33,10 @@ public class ColorInitialization : Singleton<ColorInitialization> {
 				towerSpot.Unhighlighted = player.playerColor;
 				towerSpot.Highlighted = player.playerColor * 1.3f;
 
+				var towerOutSpot = PlayerOuts[i].GetComponent<PlaceableTowerSpot> ();
+				towerOutSpot.Unhighlighted = player.playerColor;
+				towerOutSpot.Highlighted = player.playerColor * 1.3f;
+
 				var towerSend = PlayerIns [i].GetComponent<TowerSendPlatform> ();
 				towerSend.networkedPlayer = player;
 

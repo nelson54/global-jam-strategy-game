@@ -15,6 +15,9 @@ public class PlaceableTowerSpot : MonoBehaviour {
 	// Can the turret fire while on this spot?
 	public bool CanFire;
 
+	// Can multiple things be put on this spot?
+	[SerializeField] bool CanPutMultiple;
+
 	// Use this for initialization
 	void Start () {
 		SpriteToChange = GetComponent<SpriteRenderer>();
@@ -34,6 +37,7 @@ public class PlaceableTowerSpot : MonoBehaviour {
 	}
 
 	virtual public bool isFull() {
+		if(CanPutMultiple) return false;
 		return tower != null;
 	}
 

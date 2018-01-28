@@ -23,10 +23,17 @@ public class Tower : MonoBehaviour {
     public TowerType Type;
 
 	public PlaceableTowerSpot CurrentSpot;
+	private bool isDead = false;
 
 	public void MakeDead() {
-		SwitchStates = State.Dead;
+		SwitchStates = State.Disabled;
 		GetComponent<SpriteRenderer> ().color = Color.white;
+
+		if (PlayerManager.instance.towerBeingDragged == this) {
+			Destroy (gameObject);
+		} else {
+			isDead = true;
+		}
 	}
 
 
@@ -42,6 +49,9 @@ public class Tower : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+		if (isDead)
+			return;
+
         DraggingTower();
         StateMachine();
         //If an enemy gets killed (Becomes Null) when it's being shot remove it from the list and find a new target
@@ -49,8 +59,7 @@ public class Tower : MonoBehaviour {
         {
             SwitchStates = State.Disabled;
         }
-        else if(EnemyBeingShot == null && SwitchStates != State.Disabled)
-        {
+		else if(EnemyBeingShot == null && SwitchStates != State.Disabled ) {
             SwitchStates = State.FindNextTarget;
         }
     }
@@ -62,13 +71,12 @@ public class Tower : MonoBehaviour {
     //When the mouse is clicked on the object toggle the dragging bool
     private void OnMouseDown()
     {
-		if (SwitchStates == State.Dead)
+		if (isDead)
 			return;
 
-        if(PlayerManager.instance.isDead)
-        {
-            SwitchStates = State.FindNextTarget;
-        }
+		if (PlayerManager.instance.isDead) {
+			SwitchStates = State.FindNextTarget;
+		}
 		// Start dragging if the player isn't dragging
 		else if(PlayerManager.instance.towerBeingDragged == null) {
 			
@@ -131,10 +139,6 @@ public class Tower : MonoBehaviour {
         //While the game object is being dragged set its position to the mouse position
         if (MouseIsDragging)
         {
-			if (SwitchStates == State.Dead) {
-				Destroy (gameObject);
-			}
-
             Vector3 TrueMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 MousePosition = new Vector3(TrueMousePosition.x, TrueMousePosition.y, transform.position.z);
 			// bound the tracking only to valid positions
@@ -150,6 +154,7 @@ public class Tower : MonoBehaviour {
     {
         switch(SwitchStates)
         {
+			case State.Dead: break;
             case State.StartShooting:
                 StartShooting();
                 break;
@@ -211,11 +216,13 @@ public class Tower : MonoBehaviour {
 
 	public void setPlaceableTowerSpot(PlaceableTowerSpot newSpot) {
 		if (newSpot == null || newSpot.isFull()) {
-			//spot = towerPen;
+			// return to initial spot
 			transform.position = new Vector3(CurrentSpot.transform.position.x, CurrentSpot.transform.position.y, transform.position.z);
 		}
 		else {
-			transform.position = new Vector3(newSpot.transform.position.x, newSpot.transform.position.y, transform.position.z);
+			// place self on new spot
+			if(newSpot.SnapToCenter)
+				transform.position = new Vector3(newSpot.transform.position.x, newSpot.transform.position.y, transform.position.z);
 			newSpot.tower = this;
 			CurrentSpot.tower = null;
 			CurrentSpot = newSpot;
