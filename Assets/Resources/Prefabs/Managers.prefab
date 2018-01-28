@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114016242407083022}
   - component: {fileID: 114696860604230498}
   - component: {fileID: 114683152005237978}
+  - component: {fileID: 114861566534268020}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -60,7 +61,7 @@ MonoBehaviour:
   spawners:
   - {fileID: 0}
   - {fileID: 0}
-  waveInterval: 15
+  waveInterval: 1
 --- !u!114 &114683152005237978
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -120,3 +121,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b07633107564656bcb3e055fd288c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114861566534268020
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1082352118507920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6961b328bb5374f9d1c395458ac63a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerPrefabs:
+  - {fileID: 1361966581286410, guid: 9136df9da2e0f37459100c73b094377b, type: 2}
+  - {fileID: 1341213572596698, guid: d273b2db91c66904db6334cdc2b5bdc1, type: 2}

@@ -1900,11 +1900,23 @@ Prefab:
       propertyPath: moneyChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1293912358}
-    - target: {fileID: 114016242407083022, guid: 9ac1e6caaae824362994fc340cbf8eeb,
+    - target: {fileID: 114861566534268020, guid: 9ac1e6caaae824362994fc340cbf8eeb,
         type: 2}
-      propertyPath: waveInterval
+      propertyPath: towerPrefabs.Array.data[0].prefab
+      value: 
+      objectReference: {fileID: 1361966581286410, guid: 9136df9da2e0f37459100c73b094377b,
+        type: 2}
+    - target: {fileID: 114861566534268020, guid: 9ac1e6caaae824362994fc340cbf8eeb,
+        type: 2}
+      propertyPath: towerPrefabs.Array.data[1].type
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114861566534268020, guid: 9ac1e6caaae824362994fc340cbf8eeb,
+        type: 2}
+      propertyPath: towerPrefabs.Array.data[1].prefab
+      value: 
+      objectReference: {fileID: 1341213572596698, guid: d273b2db91c66904db6334cdc2b5bdc1,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ac1e6caaae824362994fc340cbf8eeb, type: 2}
   m_IsPrefabParent: 0
@@ -3430,6 +3442,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4949271118490406, guid: 9377261848dbf514ab185ee60f4f1ca2, type: 2}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114801387234411724, guid: 9377261848dbf514ab185ee60f4f1ca2,
+        type: 2}
+      propertyPath: towerType
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

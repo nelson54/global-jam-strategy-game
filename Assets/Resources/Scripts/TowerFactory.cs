@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TowerFactory : MonoBehaviour {
-	public GameObject towerPrefab;
-
+	
+	public TowerType towerType;
 	public BuildingProgressBar progressBar;
 	public TowerPen towerPen;
 
@@ -51,7 +51,9 @@ public class TowerFactory : MonoBehaviour {
 		isBuilding = false;
 		progressBar.Reset ();
 
-		var instance = GameObject.Instantiate (towerPrefab);
+		var color = playerManager.localNetworkedPlayer != null ? playerManager.localNetworkedPlayer.playerColor : Color.red;
+		var instance = TowerPlacer.instance.PlaceATower (towerType, color);
+
 		instance.transform.position = new Vector3(towerPen.transform.position.x, towerPen.transform.position.y, instance.transform.position.z);
 		instance.GetComponent<Tower>().CurrentSpot = towerPen;
 
