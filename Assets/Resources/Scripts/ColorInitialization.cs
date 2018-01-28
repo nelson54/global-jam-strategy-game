@@ -8,6 +8,8 @@ public class ColorInitialization : Singleton<ColorInitialization> {
 	[SerializeField] SpriteRenderer[] PlayerIns;
 	[SerializeField] SpriteRenderer[] PlayerOuts;
 
+	[SerializeField] SpriteRenderer YourColor;
+
 	void Start() {
 		Invoke("Run", 1f);
 	}
@@ -45,6 +47,8 @@ public class ColorInitialization : Singleton<ColorInitialization> {
 
 				PlayerOuts[i].color = player.playerColor;
 				i++;
+			} else {
+				YourColor.color = player.playerColor;
 			}
 		}
 		// Set the rest of the colors to grey
