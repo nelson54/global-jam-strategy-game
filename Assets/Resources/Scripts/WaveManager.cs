@@ -51,6 +51,7 @@ public class WaveManager : Singleton<WaveManager> {
 
 					spawn.enemyPrefab = basicEnemyPrefabs [index];
 					spawn.size = (int)Mathf.Floor (intensity * defaultSpawnSizes [index]);
+                    spawn.hpMultiplyer = intensity/2;
 					spawn.interval = .333f;
 
 					var waveSpawn = new Wave.WaveSpawn {
