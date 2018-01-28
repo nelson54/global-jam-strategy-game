@@ -124,7 +124,7 @@ public class Tower : MonoBehaviour {
             Vector3 TrueMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 MousePosition = new Vector3(TrueMousePosition.x, TrueMousePosition.y, transform.position.z);
 			// bound the tracking only to valid positions
-			if(MousePosition.x > -8.8f && MousePosition.x < 8.8f && MousePosition.y < 5f && MousePosition.y > -3.8f) {
+			if(MousePosition.x > -8.8f && MousePosition.x < 8.8f && MousePosition.y < 5f && MousePosition.y > -5f) {
 				gameObject.transform.position = MousePosition;
 			}
         }
