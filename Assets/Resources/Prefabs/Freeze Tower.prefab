@@ -137,13 +137,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MouseIsDragging: 0
   Timer: 0
-  FireRate: 0.5
+  FireRate: 3
   Bullet: {fileID: 0}
   BulletSpeed: 0
   SwitchStates: 0
   EnemyBeingShot: {fileID: 0}
   Type: 2
   CurrentSpot: {fileID: 0}
+  effect: {fileID: 1090154134279444, guid: 8b8f67883ecfb473c8f038f47a885b60, type: 2}
 --- !u!212 &212766709588182406
 SpriteRenderer:
   m_ObjectHideFlags: 1
