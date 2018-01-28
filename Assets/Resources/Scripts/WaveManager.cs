@@ -26,7 +26,7 @@ public class WaveManager : Singleton<WaveManager> {
         {
 			var wave = new Wave();
 
-			if ((i + 1) % 10 == 0) {
+			if ((i + 1) % 5 == 0) {
 				var spawner = GetRandomSpawner ();
 
 				var spawn = new BossSpawn ();
