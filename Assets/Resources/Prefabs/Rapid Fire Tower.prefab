@@ -131,7 +131,7 @@ MonoBehaviour:
   BulletSpeed: 4
   SwitchStates: 0
   EnemyBeingShot: {fileID: 0}
-  Type: 0
+  Type: 3
   CurrentSpot: {fileID: 0}
 --- !u!114 &114851051386392768
 MonoBehaviour:

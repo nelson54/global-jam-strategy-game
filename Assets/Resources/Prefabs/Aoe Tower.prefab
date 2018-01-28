@@ -142,7 +142,7 @@ MonoBehaviour:
   BulletSpeed: 0
   SwitchStates: 0
   EnemyBeingShot: {fileID: 0}
-  Type: 2
+  Type: 4
   CurrentSpot: {fileID: 0}
 --- !u!212 &212766709588182406
 SpriteRenderer:
