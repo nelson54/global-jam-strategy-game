@@ -26,7 +26,7 @@ public class TowerFactory : MonoBehaviour {
 	void Update () {
 		if(isBuilding) {
 			WorkTick ();
-		} else if(Input.GetMouseButtonDown(0)) {
+		} else if(Input.GetMouseButtonDown(0) && !PlayerManager.instance.isDead) {
 			RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, LayerMask.GetMask("Factory"));
 			if(hit && hit.transform == transform) {
 				Build (80, 1f);

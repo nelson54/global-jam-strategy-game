@@ -175,7 +175,7 @@ public class Tower : MonoBehaviour {
     private void FindNextTarget()
     {
         GameObject EnemyCircleDetector = transform.GetChild(0).gameObject;
-        var EnemyList = Physics2D.OverlapCircleAll(transform.position, EnemyCircleDetector.GetComponent<CircleCollider2D>().radius, 1 << LayerMask.NameToLayer("Enemies"));
+        var EnemyList = Physics2D.OverlapCircleAll(transform.position, EnemyCircleDetector.GetComponent<CircleCollider2D>().radius, LayerMask.GetMask("Enemy"));
         if(EnemyList.Length > 0)
         {
             float CurrentClosestDistanceToNextNode = 10000f;
