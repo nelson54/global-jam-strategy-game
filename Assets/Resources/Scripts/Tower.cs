@@ -18,9 +18,9 @@ public class Tower : MonoBehaviour {
     //Stores the current enemy being shot at
     public GameObject EnemyBeingShot;
 
-	private PlaceableTowerSpot spot;
+	public PlaceableTowerSpot CurrentSpot;
 
-	private TowerPen towerPen;
+	//private TowerPen towerPen;
 
 
     // Use this for initialization
@@ -29,6 +29,7 @@ public class Tower : MonoBehaviour {
 		TOWER_IGNORE_MASK = ~LayerMask.GetMask("Tower", "Tower Detector");
         //Initialize the tower as not being dragged
         MouseIsDragging = false;
+		SwitchStates = State.Disabled;
     }
 
     // Update is called once per frame
@@ -44,9 +45,9 @@ public class Tower : MonoBehaviour {
         print(SwitchStates);
     }
 
-	public void setTowerPen(TowerPen towerPen) {
-		this.towerPen = towerPen;
-	}
+	//public void setTowerPen(TowerPen towerPen) {
+	//	this.towerPen = towerPen;
+	//}
 
     //When the mouse is clicked on the object toggle the dragging bool
     private void OnMouseDown()
@@ -94,8 +95,8 @@ public class Tower : MonoBehaviour {
 				}
 			}
 
-			if (spot) {
-				setPlaceableTowerSpot (spot);
+			if (CurrentSpot) {
+				setPlaceableTowerSpot (CurrentSpot);
 			}
 
 			// Stop dragging
@@ -185,14 +186,17 @@ public class Tower : MonoBehaviour {
         }
     }
 
-	public void setPlaceableTowerSpot(PlaceableTowerSpot spot) {
-		if (spot == null || spot.isFull()) {
-			spot = towerPen;
+	public void setPlaceableTowerSpot(PlaceableTowerSpot newSpot) {
+		if (newSpot == null || newSpot.isFull()) {
+			//spot = towerPen;
+			transform.position = new Vector3(CurrentSpot.transform.position.x, CurrentSpot.transform.position.y, transform.position.z);
 		}
-
-		transform.position = new Vector3(spot.transform.position.x, spot.transform.position.y, spot.transform.position.z);
-		spot.tower = this;
-		this.spot = spot;
+		else {
+			transform.position = new Vector3(newSpot.transform.position.x, newSpot.transform.position.y, transform.position.z);
+			newSpot.tower = this;
+			CurrentSpot.tower = null;
+			CurrentSpot = newSpot;
+		}
 	}
 
     private void TowerIsDisabled()

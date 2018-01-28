@@ -111,7 +111,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.85, y: 0.85}
   m_EdgeRadius: 0
 --- !u!114 &114013562258355792
 MonoBehaviour:
@@ -141,6 +141,7 @@ MonoBehaviour:
   BulletSpeed: 4
   SwitchStates: 0
   EnemyBeingShot: {fileID: 0}
+  CurrentSpot: {fileID: 0}
 --- !u!212 &212766709588182406
 SpriteRenderer:
   m_ObjectHideFlags: 1

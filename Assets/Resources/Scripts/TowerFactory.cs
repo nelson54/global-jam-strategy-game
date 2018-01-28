@@ -52,10 +52,11 @@ public class TowerFactory : MonoBehaviour {
 		progressBar.Reset ();
 
 		var instance = GameObject.Instantiate (towerPrefab);
-		instance.transform.position = towerPen.transform.position;
+		instance.transform.position = new Vector3(towerPen.transform.position.x, towerPen.transform.position.y, instance.transform.position.z);
+		instance.GetComponent<Tower>().CurrentSpot = towerPen;
 
-		var tower = instance.GetComponent<Tower> ();
-		tower.setTowerPen (towerPen);
+		//var tower = instance.GetComponent<Tower> ();
+		//tower.setTowerPen (towerPen);
 	}
 
 	public void CancelBuilding() {
