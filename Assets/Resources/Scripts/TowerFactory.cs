@@ -10,10 +10,10 @@ public class TowerFactory : MonoBehaviour {
 
 	public bool isBuilding = false;
 
-	public int buildingCost = 0;
-	public float totalWork = 1f;
-	public float currentWork = 0f;
-	public float workRate = 1f;
+	public int buildingCost;
+	public float totalWork;
+	public float currentWork;
+	public float workRate;
 
 	private PlayerManager playerManager;
 
@@ -29,17 +29,16 @@ public class TowerFactory : MonoBehaviour {
 		} else if(Input.GetMouseButtonDown(0) && !PlayerManager.instance.isDead) {
 			RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, LayerMask.GetMask("Factory"));
 			if(hit && hit.transform == transform) {
-				Build (1f);
+				Build ();
 			}
 		}
 	}
 		
-	public void Build(float totalWork) {
+	public void Build() {
 		if (playerManager.money >= buildingCost) {
 			playerManager.money -= buildingCost;
 			isBuilding = true;
 			currentWork = 0f;
-			this.totalWork = totalWork;
 			progressBar.Show ();
 		}
 	}
