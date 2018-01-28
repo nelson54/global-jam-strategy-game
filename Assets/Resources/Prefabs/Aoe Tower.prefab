@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61034937961306764}
   - component: {fileID: 114793672149855560}
   m_Layer: 11
-  m_Name: Freeze Tower
+  m_Name: Aoe Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -178,7 +178,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: b114d2a6d3dcff04bb230bcb56190ef9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 38b94fd74a994314e99e139920b9f4db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
