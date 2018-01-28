@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4106016026433320}
   - component: {fileID: 212766709588182406}
   - component: {fileID: 61034937961306764}
-  - component: {fileID: 114793672149855560}
+  - component: {fileID: 114499173303311470}
   m_Layer: 11
   m_Name: Aoe Tower
   m_TagString: Untagged
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 052dcc9834c7feb45a1496af197e82e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114793672149855560
+--- !u!114 &114499173303311470
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -132,18 +132,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1361966581286410}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ebab81ab710e43eba83642e1b168222, type: 3}
+  m_Script: {fileID: 11500000, guid: af9797c29dcc94cf0a61dfa186b836d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MouseIsDragging: 0
   Timer: 0
-  FireRate: 0
+  FireRate: 1
   Bullet: {fileID: 0}
   BulletSpeed: 0
   SwitchStates: 0
   EnemyBeingShot: {fileID: 0}
   Type: 4
   CurrentSpot: {fileID: 0}
+  missRate: 0.2
+  bulletDamage: 5
 --- !u!212 &212766709588182406
 SpriteRenderer:
   m_ObjectHideFlags: 1
