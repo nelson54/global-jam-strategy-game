@@ -23,6 +23,7 @@ public class ColorInitialization : Singleton<ColorInitialization> {
 				player.EventPlayerLost += (id) => {
 					DisableArea(index);
 					DisableTowers(player);
+					CheckWinCondition();
 				};
 
 				player.receiveArea = PlayerOuts [i].gameObject;
@@ -65,6 +66,21 @@ public class ColorInitialization : Singleton<ColorInitialization> {
 			if (renderer.color == player.playerColor) {
 				tower.MakeDead ();
 			}
+		}
+	}
+
+	private void CheckWinCondition() {
+		bool won = true;
+		if(!PlayerManager.instance.localNetworkedPlayer.isAlive) return;
+		var networkedPlayers = FindObjectsOfType<NetworkedPlayer> ();
+		foreach(NetworkedPlayer player in networkedPlayers) {
+			if(PlayerManager.instance.localNetworkedPlayer != player && player.isAlive) {
+				won = false;
+				break;
+			}
+		}
+		if(won) {
+			GameObject.FindWithTag("YouWin").GetComponent<UnityEngine.UI.Text>().enabled = true;
 		}
 	}
 }
