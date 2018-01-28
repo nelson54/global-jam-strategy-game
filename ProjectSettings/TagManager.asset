@@ -8,6 +8,7 @@ TagManager:
   - TowerPlacementSpot
   - Enemy
   - Bullet
+  - YouWin
   layers:
   - Default
   - TransparentFX

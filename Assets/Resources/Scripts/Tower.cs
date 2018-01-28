@@ -121,9 +121,7 @@ public class Tower : MonoBehaviour {
 				}
 			}
 
-			if (CurrentSpot) {
-				setPlaceableTowerSpot (CurrentSpot);
-			}
+			setPlaceableTowerSpot (null);
 
 			// Stop dragging
 			MouseIsDragging = false;
